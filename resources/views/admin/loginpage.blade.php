@@ -31,7 +31,7 @@ h1 {
 
 h2 {
     text-align: left;
-    color: black;
+    color: white;
 }
 
 p {
@@ -114,6 +114,7 @@ input {
 }
 
 .container2 {
+	font-color:white;	
 	border-radius: 0px;
     position: relative;
 	overflow: hidden;
@@ -121,7 +122,8 @@ input {
 	max-width: 100%;
 	min-height: 480px;
     top : -100px;
-    left : -500px;
+    left : -450px;
+	
     
 }
 
@@ -281,8 +283,7 @@ footer a {
 	<div class="form-container sign-up-container">
 		<form action="#">
 			<h1>Buat Akun Admin</h1>
-			<br></br>
-			<span>or use your email for registration</span>
+			<p></p>
 			<input type="text" placeholder="Name" />
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
@@ -290,14 +291,13 @@ footer a {
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<form action="home">
 			<h1>Login Admin</h1>
 			<br></br>
-			<span>or use your account</span>
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
 			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
+			<button>Login</button>
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -316,10 +316,9 @@ footer a {
 	</div>
 </div>
 <div class="container2" id="container">
-	<h1>HALO ADMIN!</h1>
+	<h2>HALO ADMIN!</h2>
     <h2>Selamat datang kembali,</h2>
-    <br></br>
-    <h3>Banyak hal menarik telah, ayo segera masuk untuk melihatnya.</h3>
+    <h2>Banyak hal menarik, Ayo segera masuk untuk melihatnya.</h2>
 	</div>
 
     <script>
