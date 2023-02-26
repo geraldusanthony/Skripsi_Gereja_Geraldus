@@ -12,15 +12,27 @@
     <style>
     h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
     body {font-family: "Open Sans"}
+    
+    body {
+	  background: linear-gradient(to left, orange, #FF416C);
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  flex-direction: column;
+	  font-family: 'Montserrat', sans-serif;
+	  height: 96vh;
+	  margin: -20px 0 50px;
+    }
+    
 </style>
 </head>
 <body class="w3-light-grey">
-<div class="w3-container w3-light-grey" style="padding:160px 16px">
+<div class="body" style="padding:160px 16px">
   <div class="w3-row-padding" >
     <div class="w3-col m6">
-      <h3>Terimakasih telah melakukan pendaftaran misa.</h3>
-      <p>Silahkan Datang sesuai dengan <b>jadwal</b> yang telah dipilih<br>Anda akan duduk pada kursi nomer .</p>
-      <p>Tuhan Yesus Memberkati :)</p>
+      <h1>Terimakasih telah melakukan pendaftaran misa.</h1>
+      <h3>Silahkan Datang sesuai dengan <b>jadwal</b> yang telah dipilih<br>Anda akan duduk pada kursi nomer .</h3>
+      <h4>Tuhan Yesus Memberkati :)</h4>
       <p><a href="/homeumat" class="w3-button w3-orange"><i class="fa fa-home"> </i> Kembali Ke Halaman Utama</a></p>
     </div>
     <div class="w3-col m6">

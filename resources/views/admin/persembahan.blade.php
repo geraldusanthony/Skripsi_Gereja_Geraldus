@@ -129,8 +129,12 @@ tr:nth-child(even) {
                  </select>
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Jumlah Persembahan</label>
+              <label for="exampleInputEmail1">Jumlah Persembahan 1</label>
               <input name="jumlah"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="Rp.">
+           </div>
+           <div class="form-group">
+              <label for="exampleInputEmail1">Jumlah Persembahan 2</label>
+              <input name="jumlah2"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="Rp.">
            </div>
         </div>
         <div class="modal-footer">
@@ -147,7 +151,8 @@ tr:nth-child(even) {
         <th>Tahun</th>
         <th>Bulan</th> 
         <th>Minggu Ke</th> 
-        <th>Jumlah</th>
+        <th>Persembahan 1</th>
+        <th>Persembahan 2</th>
         <th>Action</th>
         </tr>
         @foreach ($persembahan as $persembahan)
@@ -156,6 +161,7 @@ tr:nth-child(even) {
         <td>{{$persembahan->bulan}}</td> 
         <td>{{$persembahan->minggu}}</td> 
         <td>{{$persembahan->jumlah}}</td> 
+        <td>{{$persembahan->jumlah2}}</td> 
         <td><a href="/deletepersembahan/{{$persembahan->id}}" class="btn btn-primary w3-orange">Delete</a></td>
         @endforeach
         </tr>

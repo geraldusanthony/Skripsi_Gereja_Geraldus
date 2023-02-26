@@ -200,7 +200,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
             <th>Tahun</th>
             <th>Bulan</th> 
             <th>Minggu Ke</th> 
-            <th>Jumlah</th>
+            <th>Persembahan 1</th>
+            <th>Persembahan 2</th>
             </tr>
             @foreach ($persembahan as $persembahan)
             <tr>
@@ -208,6 +209,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
             <td>{{$persembahan->bulan}}</td> 
             <td>{{$persembahan->minggu}}</td> 
             <td>{{$persembahan->jumlah}}</td> 
+            <td>{{$persembahan->jumlah2}}</td>
             @endforeach
             </tr>
             </div>

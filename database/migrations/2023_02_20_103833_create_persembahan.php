@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('bulan');
             $table->string('minggu');
             $table->string('jumlah');
+            $table->string('jumlah2');
             $table->timestamps();
         });
     }
