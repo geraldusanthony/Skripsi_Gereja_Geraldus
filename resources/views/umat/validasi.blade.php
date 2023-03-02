@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="asset/images/logo2.jpg">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
@@ -31,7 +32,9 @@
   <div class="w3-row-padding" >
     <div class="w3-col m6">
       <h1>Terimakasih telah melakukan pendaftaran misa.</h1>
-      <h3>Silahkan Datang sesuai dengan <b>jadwal</b> yang telah dipilih<br>Anda akan duduk pada kursi nomer .</h3>
+      <h3>Silahkan Datang sesuai dengan <b>jadwal</b> yang telah dipilih<br>
+      <h3>Berikut nomor kursi anda</h3>
+      
       <h4>Tuhan Yesus Memberkati :)</h4>
       <p><a href="/homeumat" class="w3-button w3-orange"><i class="fa fa-home"> </i> Kembali Ke Halaman Utama</a></p>
     </div>

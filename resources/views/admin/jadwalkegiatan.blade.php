@@ -8,6 +8,10 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
@@ -66,14 +70,14 @@ tr:nth-child(even) {
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="statistik" class="w3-bar-item w3-button w3-padding w3-orange"><i class="fa fa-bar-chart fa-fw"></i>  Statistik</a>
+    <a href="statistik" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart fa-fw"></i>  Statistik</a>
     <a href="tambahumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus fa-fw"></i>  Tambah Umat</a>
     <a href="daftarumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
-    <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-calendar fa-fw"></i>  Tambah Jadwal Misa</a>
+    <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar fa-fw"></i>  Tambah Jadwal Misa</a>
     <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Jadwal Misa Mingguan</a>
-    <a href="persembahan" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-credit-card fa-fw"></i>  Data Persembahan</a>
-    <a href="datamisaumat" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-database fa-fw"></i>  Data Misa</a>
-    <a href="jadwalkegiatan" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar fa-fw"></i>  Tambah Jadwal Kegiatan</a>
+    <a href="persembahan" class="w3-bar-item w3-button w3-padding"><i class="fa fa-credit-card fa-fw"></i>  Data Persembahan</a>
+    <a href="datamisaumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-database fa-fw"></i>  Data Misa</a>
+    <a href="jadwalkegiatan" class="w3-bar-item w3-button w3-padding w3-orange"><i class="fa fa-calendar fa-fw"></i>  Tambah Jadwal Kegiatan</a>
   </div>
 </nav>
 
@@ -83,8 +87,72 @@ tr:nth-child(even) {
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
+  <header class="w3-container" style="padding-top:22px">
+    <h2><b>Silahkan Tambah Data Jadwal Kegiatan Paroki</b></h2>
+    <div class="modal-body">
+        <form action="/addjadwalkegiatan" method="POST">
+          {{csrf_field()}}
+           <div class="form-group">
+                 <label for="exampleInputEmail1">Hari </label>
+                 <select class="selectpicker form-control" name="hari">
+                 <option>Pilih Hari</option>
+                 <option>Senin</option>
+                 <option>Selasa</option>
+                 <option>Rabu</option>
+                 <option>Kamis</option>
+                 <option>Jumat</option>
+                 <option>Sabtu</option>
+                 <option>Minggu</option>
+                 </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Tanggal</label>
+              <input name="tanggal"type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+           </div>
+           <div class="form-group">
+              <label for="exampleInputEmail1">Tempat Kegiatan</label>
+              <input name="tempat"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+           </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Kegiatan</label> 
+                <input name="kegiatan"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            </input>
+            </div>
+        <div class="modal-footer">
+        <button type="submit" class="btn btn-primary w3-orange">Submit</button>
+    </form>
+    </div> 
+  
 
-
+  <header class="w3-container" style="padding-top:22px">
+    <h2><b>Jadwal Kegiatan Gereja St. Maria Assumpta Gamping</b></h2>
+    </header>
+    <div class="w3-row">
+    <div>
+        <table class="table">
+        <tr>
+        <th>Hari</th>
+        <th>Tanggal</th> 
+        <th>Tempat</th>
+        <th>Kegiatan</th> 
+        <th>Edit</th>
+        <th>Hapus</th>
+        </tr>
+        @foreach ($jadwalkegiatan as $jadwalkegiatan)
+        <tr>
+        <td>{{$jadwalkegiatan->hari}}</td>   
+        <td>{{$jadwalkegiatan->tanggal}}</td> 
+        <td>{{$jadwalkegiatan->tempat}}</td> 
+        <td>{{$jadwalkegiatan->kegiatan}}</td> 
+        <td><a href="/viewdatakegiatan/{{$jadwalkegiatan->id}}" class="btn btn-primary w3-orange">Edit</a></td>
+        <td><a href="/deletejadwalkegiatan/{{$jadwalkegiatan->id}}" class="btn btn-primary w3-orangemary w3-orange">Hapus</a></td>
+        @endforeach
+        </tr>
+        </div>
+        </table>
+      </div>
+    </div>  
+</header>
 
   <!-- End page content -->
 </div>

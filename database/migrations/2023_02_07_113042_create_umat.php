@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('umat', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('nama_umat');
             $table->string('warga');
             $table->string('negara');
@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('tgl_lahir');
             $table->string('jns_kelamin');
             $table->string('ling');
+            $table->string('images');
             $table->timestamps();
         });
     }

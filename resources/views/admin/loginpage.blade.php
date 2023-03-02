@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" type="image/x-icon" href="asset/images/logo2.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Login Admin</title>
 <style>
@@ -308,7 +309,7 @@ footer a {
 				<button class="ghost" id="signIn">Sign In</button>
 			</div>
 			<div class="overlay-panel overlay-right">
-				<h1>Hello, Umat!</h1>
+				<h1>Hello, Admin!</h1>
 				<p>Silahkan isi form untuk registrasi</p>
 				<button class="ghost" id="signUp">Registrasi</button>
 			</div>

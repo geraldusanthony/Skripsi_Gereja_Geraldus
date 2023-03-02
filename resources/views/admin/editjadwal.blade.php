@@ -42,58 +42,18 @@ tr:nth-child(even) {
 </head>
 <body class="w3-light-grey">
 
-<!-- Top container -->
-<div class="w3-bar w3-top w3-white w3-large" style="z-index:4">
-  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-  <span class="w3-bar-item w3-right">
-     <img src="asset\images\logo2.jpg" class="w3-circle" style="width:70px">
-     <span class="w3-bar-item w3-right">Data Umat St Maria Assumpta Gamping</span>
-  </span>
-</div>
-
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
-  <div class="w3-container w3-row">
-    <div class="w3-col s4">
-      <img src="asset\images\user.png" class="w3-circle w3-margin-right" style="width:46px">
-    </div>
-    <div class="w3-col s8 w3-bar">
-      <span>Berkah dalem, Selamat Datang <strong>Admin</strong></span><br>
-      <a href="home" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i></a>
-      <a href="loginpage" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i></a>
-      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
-    </div>
-  </div>
-  <hr>
-  <div class="w3-container">
-    <h5>Dashboard</h5>
-  </div>
-  <div class="w3-bar-block">
-    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="statistik" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart fa-fw"></i>  Statistik</a>
-    <a href="tambahumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus fa-fw"></i>  Tambah Umat</a>
-    <a href="daftarumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
-    <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding w3-orange"><i class="	fa fa-calendar fa-fw"></i> Tambah Jadwal Misa</a>
-    <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Daftar Misa Mingguan</a>
-    <a href="persembahan" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-credit-card fa-fw"></i>  Data Persembahan</a>
-    <a href="datamisaumat" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-database fa-fw"></i>  Data Misa</a>
-    <a href="jadwalkegiatan" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar fa-fw"></i>  Tambah Jadwal Kegiatan</a>
-  </div>
-</nav>
-
-
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+<div class="w3-main" style="margin-left:200px;margin-top:43px;margin-right:200px">
   <header class="w3-container" style="padding-top:22px">
-    <h2><b>Silahkan Tambah Data Jadwal Misa</b></h2>
+    <h2><b>Edit Data Jadwal Misa</b></h2>
     <div class="modal-body">
-        <form action="/addjadwalmisa" method="POST">
+        <form action="{{route('editjadwal',['id'=>$jadwalmisa->id])}}" method="GET">
           {{csrf_field()}}
            <div class="form-group">
                  <label for="exampleInputEmail1">Hari </label>
-                 <select class="selectpicker form-control" name="hari">
+                 <select class="selectpicker form-control" name="hari" value="{{$jadwalmisa->hari}}">
                  <option>Pilih Hari</option>
                  <option>Sabtu</option>
                  <option>Minggu</option>
@@ -101,7 +61,7 @@ tr:nth-child(even) {
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Tanggal</label>
-              <input name="tanggal"type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+              <input name="tanggal"type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$jadwalmisa->tanggal}}">
            </div>
            <div class="form-group">
                  <label for="exampleInputEmail1">Gereja </label>
@@ -121,11 +81,11 @@ tr:nth-child(even) {
             </div>
          <div class="form-group">
             <label for="exampleInputEmail1">kuota</label> 
-            <input name="kuota"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            <input name="kuota"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$jadwalmisa->kuota}}">
          </div>
       </div>
         <div class="modal-footer">
-        <button type="submit" class="btn btn-primary w3-orange">Submit</button>
+        <button type="submit" class="btn btn-primary w3-orange">Simpan</button>
     </form>
     </div> 
   </header>

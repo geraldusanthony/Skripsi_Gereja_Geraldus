@@ -4,6 +4,7 @@
 <title>Gereja Santa Maria Assumpta Gamping</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="asset/images/logo2.jpg">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -74,10 +75,11 @@ tr:nth-child(even) {
     <a href="statistik" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart fa-fw"></i>  Statistik</a>
     <a href="tambahumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus fa-fw"></i>  Tambah Umat</a>
     <a href="daftarumat" class="w3-bar-item w3-button w3-padding w3-orange"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
-    <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-calendar fa-fw"></i>  Jadwal Misa</a>
-    <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Pendaftaran Misa</a>
+    <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-calendar fa-fw"></i>  Tambah Jadwal Misa</a>
+    <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Jadwal Misa Mingguan</a>
     <a href="persembahan" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-credit-card fa-fw"></i>  Data Persembahan</a>
-    <a href="datamisa" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-database fa-fw"></i>  Data Misa</a>
+    <a href="datamisaumat" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-database fa-fw"></i>  Data Misa</a>
+    <a href="jadwalkegiatan" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar fa-fw"></i>  Tambah Jadwal Kegiatan</a>
   </div>
 </nav>
 
@@ -102,7 +104,9 @@ tr:nth-child(even) {
         <th>Tanggal Lahir</th> 
         <th>Jenis Kelamin</th> 
         <th>Asal Lingkungan</th>
-        <th>Action</th>
+        <th>Foto</th>
+        <th>Edit</th>
+        <th>Hapus</th>
         </tr>
         @foreach ($umat as $umat)
         <tr>
@@ -114,7 +118,9 @@ tr:nth-child(even) {
         <td>{{$umat->tgl_lahir}}</td> 
         <td>{{$umat->jns_kelamin}}</td>
         <td>{{$umat->ling}}</td>
-        <td><a href="/deleteumat/{{$umat->id}}" class="btn btn-primary w3-orange">Delete</a></td>
+        <td><img src="{{asset('umat/'.$umat->images)}}" height="100px" width="100px"></td>
+        <td><a href="/prosesviewdata/{{$umat->id}}" class="btn btn-primary w3-orange">Edit</a></td>
+        <td><a href="/deleteumat/{{$umat->id}}" class="btn btn-primary w3-orange">Hapus</a></td>
         @endforeach
         </tr>
         </div>

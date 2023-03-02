@@ -26,4 +26,24 @@ class Jadwalmisa_Controller extends Controller
         jadwalmisa::where('id',$id)->delete();
         return redirect()->back();
     }
+
+    public function editjadwal(Request $request, $id){
+        $jadwalmisa = jadwalmisa::find($id);
+        $jadwalmisa->hari = $request->input('hari');
+        $jadwalmisa->tanggal = $request->input('tanggal');
+        $jadwalmisa->gereja = $request->input('gereja');
+        $jadwalmisa->jam = $request->input('jam');
+        $jadwalmisa->kuota = $request->input('kuota');
+        $jadwalmisa->save();
+        return redirect('pendaftaran');
+    }
+
+    public function findjadwal($id){
+        $jadwalmisa = jadwalmisa::where('id',$id)->first();
+        $data = [
+            'title' => 'jadwalmisa',
+            'jadwalmisa' => $jadwalmisa
+        ];
+        return view('admin.editjadwal',$data);
+    }
 }

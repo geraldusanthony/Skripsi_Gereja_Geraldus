@@ -10,9 +10,7 @@ use App\Models\jadwalmisa;
 
 class Pendaftaran_Controller extends Controller
 {
-    public function validasi(){
-        return view('umat.validasi');
-    }
+   
 
     public function homeumat(request $request){
         $persembahan = persembahan::all();
@@ -24,14 +22,29 @@ class Pendaftaran_Controller extends Controller
         return redirect('validasi')->with('sukses','Data Telah Di Tambah!');   
     }
 
-    public function datamisa(request $request){
+    public function datamisa(){
         $daftarmisa = pendaftaran::all();
-        return view('admin.datamisa',compact('daftarmisa'));
+        return view('umat.validasi',compact('daftarmisa'));
     }
     
     public function deletependaftaran($id){
         pendaftaran::where('id',$id)->delete();
         return redirect()->back();
     }
+
+    public function findiddatamisa($id){
+        $daftarmisa = pendaftaran::find($id);
+        $data = [
+            'title' => 'data',
+            'orderan' => $daftarmisa
+        ];
+        return view('umat.validasi', $data);
+    }
+
+    public function datamisaumat(){
+        $daftarmisa = pendaftaran::all();
+        return view('admin.datamisa',compact('daftarmisa'));
+    }
     
+
 }
