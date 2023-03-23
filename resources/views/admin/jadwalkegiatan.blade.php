@@ -29,15 +29,35 @@ table {
   width: 100%;
 }
 
-td, th {
+td{
   border: 1px solid #dddddd;
-  text-align: left;
+  text-align: center;
   padding: 8px;
+}
+th{
+  background-color: orange;
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+  text-align: center;
 }
 
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+tr:hover {background-color: rgba(255, 99, 71, 0.5);}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 40%;
+  font-size: 14px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
 </style>
 </head>
 <body class="w3-light-grey">
@@ -119,22 +139,20 @@ tr:nth-child(even) {
             </input>
             </div>
         <div class="modal-footer">
-        <button type="submit" class="btn btn-primary w3-orange">Submit</button>
+        <button type="submit" class="btn btn-primary w3-orange">Tambah</button>
     </form>
     </div> 
-  
 
-  <header class="w3-container" style="padding-top:22px">
     <h2><b>Jadwal Kegiatan Gereja St. Maria Assumpta Gamping</b></h2>
-    </header>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari hari kegiatan" title="Masukkan hari pelaksanaan">
     <div class="w3-row">
     <div>
-        <table class="table">
+        <table id="myTable" class="table, center">
         <tr>
         <th>Hari</th>
         <th>Tanggal</th> 
         <th>Tempat</th>
-        <th>Kegiatan</th> 
+        <th>Kegiatan</th>
         <th>Edit</th>
         <th>Hapus</th>
         </tr>
@@ -144,8 +162,8 @@ tr:nth-child(even) {
         <td>{{$jadwalkegiatan->tanggal}}</td> 
         <td>{{$jadwalkegiatan->tempat}}</td> 
         <td>{{$jadwalkegiatan->kegiatan}}</td> 
-        <td><a href="/viewdatakegiatan/{{$jadwalkegiatan->id}}" class="btn btn-primary w3-orange">Edit</a></td>
-        <td><a href="/deletejadwalkegiatan/{{$jadwalkegiatan->id}}" class="btn btn-primary w3-orangemary w3-orange">Hapus</a></td>
+        <td><a href="/viewdatakegiatan/{{$jadwalkegiatan->id}}" class="btn fa fa-edit w3-orange"></a></td>
+        <td><a href="/deletejadwalkegiatan/{{$jadwalkegiatan->id}}" class="btn fa fa-trash w3-orangemary w3-orange"></a></td>
         @endforeach
         </tr>
         </div>
@@ -156,6 +174,28 @@ tr:nth-child(even) {
 
   <!-- End page content -->
 </div>
+
+//search bar
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 
 <script>
 // Get the Sidebar

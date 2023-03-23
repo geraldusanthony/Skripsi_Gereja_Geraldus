@@ -125,7 +125,7 @@ tr:nth-child(even) {
          </div>
       </div>
         <div class="modal-footer">
-        <button type="submit" class="btn btn-primary w3-orange">Submit</button>
+        <button type="submit" class="btn btn-primary w3-orange">Tambah</button>
     </form>
     </div> 
   </header>

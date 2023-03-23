@@ -28,7 +28,15 @@ table {
   width: 100%;
 }
 
-td, th {
+td{
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
+
+th{
+  background-color: orange;
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
@@ -38,6 +46,7 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 </style>
 </head>
 <body class="w3-light-grey">
@@ -92,7 +101,7 @@ tr:nth-child(even) {
     </header>
     <div class="w3-row">
     <div>
-        <table class="table">
+        <table class="table, center">
         <tr>
         <th>No Kursi</td>
         <th>Jadwal Misa</th>
@@ -102,7 +111,7 @@ tr:nth-child(even) {
         <th>Jenis Kelamin</th>
         <th>Usia</th>
         <th>Asal Lingkungan</th>
-        <td>Action</td>
+        <th>Action</th>
         </tr>
         @foreach ($daftarmisa as $daftarmisa)
         <tr>
@@ -114,10 +123,8 @@ tr:nth-child(even) {
         <td>{{$daftarmisa->jns_klmn}}</td> 
         <td>{{$daftarmisa->usia}}</td> 
         <td>{{$daftarmisa->lingkungan}}</td> 
-        <td><a href="/deletependaftaran/{{$daftarmisa->id}}" class="btn btn-primary w3-orange">Delete</a></td>
-        <td></td>
+        <td><a href="/deletependaftaran/{{$daftarmisa->id}}" class="btn fa fa-trash w3-orange"></a></td>
         @endforeach
-        </tr>
         </tr>
         </div>
         </table>

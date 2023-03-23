@@ -33,9 +33,10 @@
     <div class="w3-col m6">
       <h1>Terimakasih telah melakukan pendaftaran misa.</h1>
       <h3>Silahkan Datang sesuai dengan <b>jadwal</b> yang telah dipilih<br>
-      <h3>Berikut nomor kursi anda</h3>
-      
-      <h4>Tuhan Yesus Memberkati :)</h4>
+      @foreach($daftarmisa as $pendaftaran)
+      <h3>Berikut nomor kursi anda <span class="font-weight-bold">{{$pendaftaran->id}}</span><span class="text-black-50"></span><span></h3>
+      @endforeach
+      <h4>Tuhan Yesus Memberkati </h4>
       <p><a href="/homeumat" class="w3-button w3-orange"><i class="fa fa-home"> </i> Kembali Ke Halaman Utama</a></p>
     </div>
     <div class="w3-col m6">

@@ -187,12 +187,37 @@ tr:nth-child(even) {
                   <label for="exampleInputEmail1">Foto Umat</label>
                   <input name="images"type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Blog">
             </div>
-      </div>
+        </div>
         <div class="modal-footer">
-        <button type="submit" class="btn btn-primary w3-orange">Submit</button>
+        <button type="submit" class="btn btn-primary w3-orange">Tambah</button>
     </form>
     </div> 
   </header>
-  
+
+  <script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
 </body>
 </html>

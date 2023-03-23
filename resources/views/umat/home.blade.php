@@ -75,7 +75,10 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                  <label for="jadwalmisa">Pilih Jadwal </label>
                  <select class="selectpicker form-control" name="jadwal">
                  <option>Silahkan Pilih Jadwal</option>
+                 <option>Sabtu Pukul 17:00</option>
+                 <option>Minggu Pukul 06:00</option>
                  <option>Minggu Pukul 08:00</option>
+                 <option>Minggu Pukul 17:00</option>
                  </select>
             </div>
             <div class="form-group">
@@ -166,9 +169,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <div class="w3-half w3-container w3-white">
   <h2 class="w3-text-light-black" style="margin-left: 220px">Kontak dan Alamat</h2> 
   <div class="w3-section" style="margin-left: 150px">
-      <p><i class="fa fa-map-marker fa-fw w3-text-red w3-xxlarge w3-margin-right"></i> Jl. Gereja No.1, Gamping Lor, Ambarketawang, Kec. Gamping, </p>
-      <p><i class="fa fa- fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Kabupaten Sleman, Daerah Istimewa Yogyakarta 55294</p>
-      <p><i class="fa fa-phone fa-fw w3-text-green w3-xxlarge w3-margin-right"></i> Phone: (0274) 798748</p>
+      <p><i class="fa fa-map-marker fa-fw w3-text-red w3-xxlarge w3-margin-right"></i> <a href="https://goo.gl/maps/zbqog79xMDBCSpdM8" target="" class="w3-hover-text-blue">Jl. Gereja No.1, Gamping Lor, Ambarketawang, Kec. Gamping </a></p>
+      <p><i class="fa fa-phone fa-fw w3-text-green w3-xxlarge w3-margin-right"></i><a href="tel:+0274798748">Hubungi 0274798748</a></p>
       <p><i class="fa fa-instagram fa-fw w3-text-pink w3-xxlarge w3-margin-right"></i><a href="https://www.instagram.com/gerejagamping/?hl=id" target="" class="w3-hover-text-blue">Instagram Gereja</a></p>
       <p><i class="fa fa-facebook fa-fw w3-text-blue w3-xxlarge w3-margin-right"></i><a href="https://www.facebook.com/gerejagamping" target="" class="w3-hover-text-blue">Facebook Gereja</a></p>
       <p><i class="fa fa-youtube fa-fw w3-text-red w3-xxlarge w3-margin-right"> </i><a href="https://www.youtube.com/channel/UCQMDYrFcZiKIGsIElaQvxvQ" target="" class="w3-hover-text-blue">Komsos Gamping</a></p>
@@ -196,7 +198,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
           <header>
           <div class="w3-row">
           </div>
-            <table class="table ">
+            <table class="table">
             <tr>
             <th>Tahun</th>
             <th>Bulan</th> 

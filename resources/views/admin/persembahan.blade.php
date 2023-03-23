@@ -29,7 +29,15 @@ table {
   width: 100%;
 }
 
-td, th {
+td{
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
+
+th{
+  background-color: orange;
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
@@ -39,6 +47,8 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 </style>
 </head>
 <body class="w3-light-grey">
@@ -106,7 +116,7 @@ tr:nth-child(even) {
         <div class="form-group">
                  <label for="exampleInputEmail1">Input Bulan </label>
                  <select class="selectpicker form-control" name="bulan">
-                 <option>Silahkan Pilih Bulan</option>
+                 <option>Pilih Bulan</option>
                  <option>Januari</option>
                  <option>Februari</option>
                  <option>Maret</option>
@@ -141,7 +151,7 @@ tr:nth-child(even) {
            </div>
         </div>
         <div class="modal-footer">
-        <button type="submit" class="btn btn-primary w3-orange">Submit</button>
+        <button type="submit" class="btn btn-primary w3-orange">Tambah</button>
     </form>
     </div> 
     <header class="w3-container" style="padding-top:22px">
@@ -149,7 +159,7 @@ tr:nth-child(even) {
     </header>
     <div class="w3-row">
     </div>
-        <table class="table">
+        <table class="table, center">
         <tr>
         <th>Tahun</th>
         <th>Bulan</th> 
@@ -166,8 +176,8 @@ tr:nth-child(even) {
         <td>{{$persembahan->minggu}}</td> 
         <td>{{$persembahan->jumlah}}</td> 
         <td>{{$persembahan->jumlah2}}</td> 
-        <td><a href="/viewdatapersembahan/{{$persembahan->id}}" class="btn btn-primary w3-orange">Edit</a></td>
-        <td><a href="/deletepersembahan/{{$persembahan->id}}" class="btn btn-primary w3-orange">Hapus</a></td>
+        <td><a href="/viewdatapersembahan/{{$persembahan->id}}" class="btn fa fa-edit w3-orange"></a></td>
+        <td><a href="/deletepersembahan/{{$persembahan->id}}" class="btn fa fa-trash w3-orange"></a></td>
         @endforeach
         </tr>
         </div>

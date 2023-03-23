@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\jadwalmisa;
 use App\Models\persembahan;
 use App\Models\pendaftaran;
+use App\Models\jadwalkegiatan;
+use App\Models\umat;
 
 class Umat_Controller extends Controller
 {
@@ -13,4 +15,31 @@ class Umat_Controller extends Controller
         $persembahan = persembahan::all();
         return view('umat.home',compact('persembahan'));
     }
+
+    public function viewdaftarumat($id){
+        $view_umat = umat::where('id',$id)->get();
+        return view('admin.profileumat',compact('view_umat'));
+    }
+
+    public function indexumat(){
+        return view('umat.index');
+    }
+
+    public function login(){
+        return view('umat.login');
+    }
+
+    public function viewpersembahan(request $request){
+        $persembahan = persembahan::all();
+        return view('umat.persembahan',compact('persembahan'));
+    }
+
+    public function viewkegiatan(request $request){
+        $jadwalkegiatan = jadwalkegiatan::all();
+        return view('umat.jadwalkegiatan',compact('jadwalkegiatan'));
+    }
+
+
+
+
 }

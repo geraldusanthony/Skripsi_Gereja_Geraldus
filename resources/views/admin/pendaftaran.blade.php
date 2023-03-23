@@ -28,15 +28,34 @@ table {
   width: 100%;
 }
 
-td, th {
+td {
   border: 1px solid #dddddd;
-  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
+
+th{
+  background-color: orange;
+  border: 1px solid #dddddd;
   padding: 8px;
   text-align: center;
 }
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+tr:hover {background-color: rgba(255, 99, 71, 0.5);}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 40%;
+  font-size: 14px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
 }
 </style>
 </head>
@@ -90,10 +109,11 @@ tr:nth-child(even) {
 
 <header class="w3-container" style="padding-top:22px">
     <h2><b>Jadwal Misa Gereja St. Maria Assumpta Gamping</b></h2>
-    </header>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari Hari Jadwal Misa" title="Masukkan Hari">
+    
     <div class="w3-row">
     <div>
-        <table class="table">
+        <table id="myTable" class="table, center">
         <tr>
         <th>Hari</th>
         <th>Tanggal</th> 
@@ -110,16 +130,39 @@ tr:nth-child(even) {
         <td>{{$jadwalmisa->gereja}}</td> 
         <td>{{$jadwalmisa->jam}}</td> 
         <td>{{$jadwalmisa->kuota}}</td> 
-        <td><a href="/viewdata/{{$jadwalmisa->id}}" class="btn btn-primary w3-orange">Edit</a></td>
-        <td><a href="/deletejadwal/{{$jadwalmisa->id}}" class="btn btn-primary w3-orangemary w3-orange">Hapus</a></td>
+        <td><a href="/viewdata/{{$jadwalmisa->id}}" class="btn fa fa-edit w3-orange"></a></td>
+        <td><a href="/deletejadwal/{{$jadwalmisa->id}}" class="btn fa fa-trash w3-orangemary w3-orange"></a></td>
         @endforeach
         </tr>
         </div>
         </table>
+        </header>
       </div>
     </div>  
   
 </div>
+
+//search bar
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 
 <script>
 // Get the Sidebar

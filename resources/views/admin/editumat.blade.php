@@ -46,7 +46,7 @@ tr:nth-child(even) {
   <header class="w3-container" style="padding-top:22px">
     <h2><b>Edit Data Umat</b></h2>
     <div class="modal-body">
-        <form action="{{route('editumat',['id'=>$umat->id])}}" method="GET">
+        <form action="{{route('editumat',['id'=>$umat->id])}}" method="POST" enctype="multipart/form-data">
           {{csrf_field()}}
           <div class="form-group">
               <label for="exampleInputEmail1">Nama Umat</label>
@@ -143,7 +143,7 @@ tr:nth-child(even) {
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Foto Umat</label>
-                <input name="images"type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Blog">
+                <input name="images" type="file" class="form-control" id="exampleInputEmail1" >
             </div>
       </div>
         <div class="modal-footer">

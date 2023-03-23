@@ -36,9 +36,10 @@ Route::get('/tambahumat','Tambahumat_Controller@tambahumat');
 Route::post('/addumat','Tambahumat_Controller@tambahdata'); 
 route::get('/deleteumat/{id}','Tambahumat_Controller@deleteumat');
 route::get('/prosesviewdata/{id}','Tambahumat_Controller@findid');
-route::get('/editumat/{id}','Tambahumat_Controller@editumat')->name('editumat');
+route::post('/editumat/{id}','Tambahumat_Controller@editumat')->name('editumat');
 
 Route::get('/daftarumat','Daftarumat_Controller@daftarumat'); 
+Route::get('/profileumat/{id}','Umat_Controller@viewdaftarumat'); 
 
 Route::get('/jadwalmisa','Jadwalmisa_Controller@jadwalmisa'); 
 Route::post('/addjadwalmisa','Jadwalmisa_Controller@addjadwalmisa');
@@ -66,3 +67,8 @@ Route::get('/validasi','Pendaftaran_Controller@datamisa');
 Route::get('/homeumat','Pendaftaran_Controller@homeumat'); 
 Route::post('/addpendaftaran','Pendaftaran_Controller@addpendaftaran');  
 route::get('/deletependaftaran/{id}','Pendaftaran_Controller@deletependaftaran');
+
+Route::get('/indexumat','Umat_Controller@indexumat');
+Route::get('/login','Umat_Controller@login');
+Route::get('/viewpersembahan','Umat_Controller@viewpersembahan');
+Route::get('/viewkegiatan','Umat_Controller@viewkegiatan');
