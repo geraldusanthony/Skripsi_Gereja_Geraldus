@@ -72,3 +72,34 @@ Route::get('/indexumat','Umat_Controller@indexumat');
 Route::get('/login','Umat_Controller@login');
 Route::get('/viewpersembahan','Umat_Controller@viewpersembahan');
 Route::get('/viewkegiatan','Umat_Controller@viewkegiatan');
+Route::get('/viewjadwalmisa','Umat_Controller@viewjadwalmisa');
+
+// Route::group(['namespace' => 'App\Http\Controllers'], function()
+// {   
+//     /**
+//      * Home Routes
+//      */
+//     Route::get('/index', 'home_Controller@index')->name('home.index');
+
+//     Route::group(['middleware' => ['guest']], function() {
+//         /**
+//          * Register Routes
+//          */
+//         Route::get('/register', 'register_Controller@show')->name('register.show');
+//         Route::post('/register', 'register_Controller@register')->name('register.perform');
+
+//         /**
+//          * Login Routes
+//          */
+//         Route::get('/login', 'login_controller@show')->name('login.show');
+//         Route::post('/login', 'login_controller@login')->name('login.perform');
+
+//     });
+
+//     Route::group(['middleware' => ['auth']], function() {
+//         /**
+//          * Logout Routes
+//          */
+//         Route::get('/logout', 'logout_Controller@perform')->name('logout.perform');
+//     });
+// });

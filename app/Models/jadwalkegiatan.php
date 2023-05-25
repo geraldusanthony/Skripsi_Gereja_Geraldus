@@ -10,5 +10,5 @@ class jadwalkegiatan extends Model
     use HasFactory;
     protected $table = 'jadwalkegiatan';
     protected $primarykey = 'id';
-    protected $fillable = ['hari','tanggal','tempat','kegiatan']; 
+    protected $fillable = ['hari','tanggal','jam','tempat','kegiatan']; 
 }

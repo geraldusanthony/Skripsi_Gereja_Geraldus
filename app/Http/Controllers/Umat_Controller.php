@@ -38,6 +38,11 @@ class Umat_Controller extends Controller
         $jadwalkegiatan = jadwalkegiatan::all();
         return view('umat.jadwalkegiatan',compact('jadwalkegiatan'));
     }
+    
+    public function viewjadwalmisa(request $request){
+        $jadwalmisa = jadwalmisa::all();
+        return view('umat.viewjadwalmisa',compact('jadwalmisa'));
+    }
 
 
 

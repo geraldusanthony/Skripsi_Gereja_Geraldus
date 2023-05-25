@@ -26,6 +26,7 @@ class Jadwalkegiatan_Controller extends Controller
         $jadwalkegiatan = jadwalkegiatan::find($id);
         $jadwalkegiatan->hari = $request->input('hari');
         $jadwalkegiatan->tanggal = $request->input('tanggal');
+        $jadwalkegiatan->jam = $request->input('jam');
         $jadwalkegiatan->tempat = $request->input('tempat');
         $jadwalkegiatan->kegiatan = $request->input('kegiatan');
         $jadwalkegiatan->save();

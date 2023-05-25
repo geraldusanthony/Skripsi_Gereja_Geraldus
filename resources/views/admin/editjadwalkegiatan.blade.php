@@ -69,6 +69,10 @@ tr:nth-child(even) {
               <input name="tanggal"type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$jadwalkegiatan->tanggal}}">
            </div>
            <div class="form-group">
+              <label for="exampleInputEmail1">Jam</label>
+              <input name="jam"type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$jadwalkegiatan->jam}}">
+           </div>
+           <div class="form-group">
               <label for="exampleInputEmail1">Tempat Kegiatan</label>
               <input name="tempat"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$jadwalkegiatan->tempat}}" >
            </div>

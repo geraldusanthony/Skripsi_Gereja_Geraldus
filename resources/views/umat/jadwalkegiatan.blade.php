@@ -64,8 +64,9 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 </head>
 <body class="w3-light-grey">
     <header class="w3-container" style="padding-top:22px">
-    <p><a href="/indexumat" class="w3-button w3-orange"><i class="fa fa-home"> </i> Kembali Ke Halaman Utama</a></p>
+    <p><a href="/indexumat" class="w3-button w3-orange"><i class="fa fa-home"> </i>Kembali</a></p>
     <h2><b>Jadwal Kegiatan Paroki</b></h2>
+    <h4>Berikut merupakan jadwal kegiatan paroki yang akan datang</h4>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari hari kegiatan" title="Masukkan hari pelaksanaan">
     </header>
     <div class="w3-row">
@@ -74,6 +75,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <tr>
         <th>Hari</th>
         <th>Tanggal</th> 
+        <th>Jam</th>
         <th>Tempat</th>
         <th>Kegiatan</th>
         </tr>
@@ -81,6 +83,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <tr>
         <td>{{$jadwalkegiatan->hari}}</td>   
         <td>{{$jadwalkegiatan->tanggal}}</td> 
+        <td>{{$jadwalkegiatan->jam}}</td> 
         <td>{{$jadwalkegiatan->tempat}}</td> 
         <td>{{$jadwalkegiatan->kegiatan}}</td> 
         @endforeach
@@ -88,7 +91,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         </div>
       </div>
   </header>
-  
+  </body>
 
 <script>
 // Get the Sidebar

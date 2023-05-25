@@ -98,6 +98,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 <header class="w3-container" style="padding-top:22px">
     <h2><b>Data Umat Pendaftar Misa</b></h2>
+    <p>Berikut merupakan data umat yang telah mendaftar untuk mengikuti misa mingguan di gereja St. Maria Assumpta Gamping</p>
     </header>
     <div class="w3-row">
     <div>

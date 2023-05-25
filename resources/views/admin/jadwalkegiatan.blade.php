@@ -130,6 +130,10 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
               <input name="tanggal"type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
            </div>
            <div class="form-group">
+              <label for="exampleInputEmail1">Jam</label>
+              <input name="jam"type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+           </div>
+           <div class="form-group">
               <label for="exampleInputEmail1">Tempat Kegiatan</label>
               <input name="tempat"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
            </div>
@@ -151,6 +155,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <tr>
         <th>Hari</th>
         <th>Tanggal</th> 
+        <th>Jam</th> 
         <th>Tempat</th>
         <th>Kegiatan</th>
         <th>Edit</th>
@@ -160,6 +165,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <tr>
         <td>{{$jadwalkegiatan->hari}}</td>   
         <td>{{$jadwalkegiatan->tanggal}}</td> 
+        <td>{{$jadwalkegiatan->jam}}</td> 
         <td>{{$jadwalkegiatan->tempat}}</td> 
         <td>{{$jadwalkegiatan->kegiatan}}</td> 
         <td><a href="/viewdatakegiatan/{{$jadwalkegiatan->id}}" class="btn fa fa-edit w3-orange"></a></td>

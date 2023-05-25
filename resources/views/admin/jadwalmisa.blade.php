@@ -87,7 +87,7 @@ tr:nth-child(even) {
 
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
   <header class="w3-container" style="padding-top:22px">
-    <h2><b>Silahkan Tambah Data Jadwal Misa</b></h2>
+    <h2><b>Silahkan Tambah Data Jadwal Misa Mingguan</b></h2>
     <div class="modal-body">
         <form action="/addjadwalmisa" method="POST">
           {{csrf_field()}}
