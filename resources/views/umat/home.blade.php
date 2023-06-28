@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <head>
 <title>Pendaftaran Misa</title> 
 <meta charset="UTF-8">
@@ -11,6 +14,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
 <style>
 body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 .w3-row-padding img {margin-bottom: 12px}
@@ -20,47 +28,21 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 #main {margin-left: 120px}
 /* Remove margins from "page content" on small screens */
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+
+.select2-container .select2-selection--single{
+    height:34px !important;
+}
+.select2-container--default .select2-selection--single{
+         border: 1px solid #ccc !important; 
+     border-radius: 0px !important; 
+}
+
 </style>
 </head>
 <body class="w3-white">
 
-<!-- Icon Bar (Sidebar - hidden on small screens) -->
-<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center w3-black">
-  <!-- Avatar image in top left corner -->
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
-    <i class="fa fa-home w3-xxlarge"></i>
-    <p>HOME</p>
-  </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
-    <i class="fa fa-user w3-xxlarge"></i>
-    <p>DAFTAR</p>
-  </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
-    <i class="fa fa-phone w3-xxlarge"></i>
-    <p>KONTAK</p>
-  </a>
-</nav>
-
-<!-- Navbar on small screens (Hidden on medium and large screens) -->
-<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
-  </div>
-</div>
-
-<!-- Page Content -->
-<div class="w3-padding-xlarge" id="main">
-  <!-- Header/Home -->
-  <header class="w3-container w3-padding-32 w3-center w3-white" id="home">
-    <h3 class="w3-jumbo"><span class="w3-hide-small">Pendaftaran Misa</span></h3>
-    <h4>Selamat datang di Gereja St. Maria Assumpta Gamping</h4>
-    <img src="asset\images\GerejaGer.png" alt="gereja" class="w3-image" width="992" height="1108">
-  </header>
-
   <!-- About Section -->
-  <div class="w3-content w3-justify w3-text-black w3-padding-64" id="about">
+  <div class="w3-content w3-justify w3-text-black" id="about">
     <h2 class="w3-text-light-black">Ayo Daftar Misa</h2> 
     <hr style="width:240px" class="w3-opacity">
     <p>Silahkan isi form dibawah ini : </p>
@@ -72,51 +54,81 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
         <form action="/addpendaftaran" method="POST">
           {{csrf_field()}}
            <div class="form-group">
-                 <label for="jadwalmisa">Pilih Jadwal </label>
-                 <select class="selectpicker form-control" name="jadwal">
-                 <option>Silahkan Pilih Jadwal</option>
-                 <option>Sabtu Pukul 17:00</option>
-                 <option>Minggu Pukul 06:00</option>
-                 <option>Minggu Pukul 08:00</option>
-                 <option>Minggu Pukul 17:00</option>
-                 </select>
+           <label for="jadwalmisa">Pilih Jadwal</label>      
+           <p>( Jika jadwal tidak tersedia kemungkinan kuota sudah penuh )</p>    
+                 <select class="form-control selectpicker" name="jadwal" class="form-control @error('jadwal') is-invalid @enderror" name="jadwal" value="{{ old('jadwal')}}" required autocomplete="jadwal" autofocus />>
+                 <option><label></label></option>
+                 @foreach($jadwalmisa as $jadwalmisa)
+                 <option> Hari : {{$jadwalmisa->hari}}, Tanggal : {{$jadwalmisa->tanggal}}, Jam : {{$jadwalmisa->jam}} </option>
+                 @endforeach
+                 </select>                 
+                 @error('jadwal')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+            @enderror
             </div>
+            
             <div class="form-group">
-              <label for="exampleInputEmail1">Nama Lengkap (Sesuai KTP)</label>
-              <input name="nama"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            <label for="exampleInputEmail1">Nama Umat (Isi sesuai KTP)</label>
+            <input id="exampleInputEmail1" type="" placeholder="" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" required autocomplete="nama" autofocus />
+			      @error('nama')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+            @enderror
            </div>
+
             <div class="form-group">
               <label for="exampleInputEmail1">No Handphone</label>
-              <input name="no_hp"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+              <input id="exampleInputEmail1" type="number" placeholder="" class="form-control @error('nama') is-invalid @enderror" name="no_hp" value="{{ old('no_hp') }}" required autocomplete="no_hp" autofocus />
+			      @error('no_hp')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+            @enderror
            </div>
+
            <div class="form-group">
               <label for="exampleInputEmail1">Alamat Lengkap (Sesuai domisili saat ini)</label>
-              <input name="alamat"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+              <input id="exampleInputEmail1" type="" placeholder="" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" required autocomplete="alamat" autofocus />
+			        @error('alamat')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+              @enderror
            </div>
+
            <div class="form-group">
                  <label for="exampleInputEmail1">Jenis Kelamin </label>
-                 <select class="selectpicker form-control" name="jns_klmn">
-                 <option>Silahkan Pilih Jenis Kelamin</option>
-                 <option>Laki-Laki</option>
-                 <option>Perempuan</option>
-                 </select>
-            </div>
+                 <div>
+                  <input type="radio" id="" name="jns_klmn" value="Laki-laki" class=" @error('') is-invalid @enderror" name="" value="" required autocomplete="" autofocus />
+                  <label for="">Laki-laki</label><br>
+                  <input type="radio" id="" name="jns_klmn" value="perempuan" />
+                  <label for="">Perempuan</label>
+                 </div>
+           </div>
+
             <div class="form-group">
-                 <label for="exampleInputEmail1">Usia </label>
-                 <select class="selectpicker form-control" name="usia">
-                 <option>Silahkan Pilih Usia</option>
-                 <option>Bawah 13 Tahun</option>
-                 <option>13-17 Tahun</option>
-                 <option>18-30 Tahun</option>
-                 <option>31-50 Tahun</option>
-                 <option>51-60 Tahun</option>
-                 <option>Di atas 60 Tahun Tahun</option>
-                 </select>
+                 <label for="exampleInputEmail1">Usia </label><br>
+                 <input type="radio" id="" name="usia" value="Bawah 13 Tahun" class=" @error('') is-invalid @enderror" name="" value="" required autocomplete="" autofocus />
+                 <label for="">Bawah 13 Tahun</label><br>
+                 <input type="radio" id="" name="usia" value="13-17 Tahun" />
+                 <label for="">13-17 Tahun</label><br>
+                 <input type="radio" id="" name="usia" value="18-30 Tahun" />
+                 <label for="">18-30 Tahun</label><br>
+                 <input type="radio" id="" name="usia" value="31-50 Tahun" />
+                 <label for="">31-50 Tahun</label><br>
+                 <input type="radio" id="" name="usia" value="51-60 Tahun" />
+                 <label for="">51-60 Tahun</label><br>
+                 <input type="radio" id="" name="usia" value="Di atas 60 Tahun" />
+                 <label for="">Di atas 60 Tahun</label>
             </div>
+            
             <div class="form-group">
                  <label for="exampleInputEmail1">Pilih Asal Lingkungan </label>
-                 <select class="selectpicker form-control" name="lingkungan">
-                 <option>Silahkan Pilih Lingkungan</option>
+                 <select class="form-control select2" name="lingkungan" class="form-control @error('lingkungan') is-invalid @enderror" name="lingkungan" value="{{ old('lingkungan') }}" required autocomplete="lingkungan" autofocus />             
+                 <option></option>
                  <option>St. Yohanes Pemandi Gamping lor</option>
                  <option>St. Agatha Gamping Tengah</option>
                  <option>St. Agustinus Gamping</option>
@@ -152,78 +164,25 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                  <option>St. Antonius Padua Jatisawit</option>
                  <option>St. Kristoforus Baleasri</option>
                  </select>
+                 @error('lingkungan')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+                @enderror
             </div>
-      </div>
+         </div>
+
         <div class="modal-footer">
         <button type="submit" class="btn btn-primary w3-orange">DAFTAR</button>
       </form>
     </div>
   </header>
+</div>    
 </div>
-    
-  <!-- Contact Section -->
 
-  <!-- End Contact Section -->
-  
-  <div class="w3-row"id="contact">
-  <div class="w3-half w3-container w3-white">
-  <h2 class="w3-text-light-black" style="margin-left: 220px">Kontak dan Alamat</h2> 
-  <div class="w3-section" style="margin-left: 150px">
-      <p><i class="fa fa-map-marker fa-fw w3-text-red w3-xxlarge w3-margin-right"></i> <a href="https://goo.gl/maps/zbqog79xMDBCSpdM8" target="" class="w3-hover-text-blue">Jl. Gereja No.1, Gamping Lor, Ambarketawang, Kec. Gamping </a></p>
-      <p><i class="fa fa-phone fa-fw w3-text-green w3-xxlarge w3-margin-right"></i><a href="tel:+0274798748">Hubungi 0274798748</a></p>
-      <p><i class="fa fa-instagram fa-fw w3-text-pink w3-xxlarge w3-margin-right"></i><a href="https://www.instagram.com/gerejagamping/?hl=id" target="" class="w3-hover-text-blue">Instagram Gereja</a></p>
-      <p><i class="fa fa-facebook fa-fw w3-text-blue w3-xxlarge w3-margin-right"></i><a href="https://www.facebook.com/gerejagamping" target="" class="w3-hover-text-blue">Facebook Gereja</a></p>
-      <p><i class="fa fa-youtube fa-fw w3-text-red w3-xxlarge w3-margin-right"> </i><a href="https://www.youtube.com/channel/UCQMDYrFcZiKIGsIElaQvxvQ" target="" class="w3-hover-text-blue">Komsos Gamping</a></p>
-      <p><i class="fa fa-twitter fa-fw w3-text-blue w3-xxlarge w3-margin-right"> </i><a href="https://twitter.com/gerejagamping" target="" class="w3-hover-text-blue">Twitter Gereja</a></p>
-    </div>
-  </div>
-  <div class="w3-half w3-container w3-white">
-  <h2 class="w3-text-light-black">Jadwal Misa Mingguan</h2> 
-    <p>Sabtu Pukul 17:00</p>
-    <p>Minggu Pukul 06:00, 08:00 & 17:00</p> 
-
-  <h2 class="w3-text-light-black">Data Persembahan Mingguan</h2>   
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="w3-button w3-block w3-orange" style="width:69%" data-toggle="modal" data-target="#myModal">Lihat</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header w3-orange">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Berikut merupakan data persembahan mingguan</h4>
-        </div>
-          <div class="modal-body">
-          <header>
-          <div class="w3-row">
-          </div>
-            <table class="table">
-            <tr>
-            <th>Tahun</th>
-            <th>Bulan</th> 
-            <th>Minggu Ke</th> 
-            <th>Persembahan 1</th>
-            <th>Persembahan 2</th>
-            </tr>
-            @foreach ($persembahan as $persembahan)
-            <tr>
-            <td>{{$persembahan->tahun}}</td>   
-            <td>{{$persembahan->bulan}}</td> 
-            <td>{{$persembahan->minggu}}</td> 
-            <td>{{$persembahan->jumlah}}</td> 
-            <td>{{$persembahan->jumlah2}}</td>
-            @endforeach
-            </tr>
-            </div>
-           </div>
-          </header>
-        </div>
-      </div>
-    </div>
-  </div> 
-  
-</div>
+<script>
+    $('.select2').select2();
+</script>
 
 </body>
 </html>

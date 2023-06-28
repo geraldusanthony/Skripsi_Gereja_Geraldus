@@ -28,7 +28,8 @@ Route::get('/home.admin', function () {
 Route::get('/login','Admin_Controller@login'); 
 Route::get('/loginpage','Admin_Controller@loginpage'); 
 
-Route::get('/home','Admin_Controller@home'); 
+
+Route::get('/homeadmin','Admin_Controller@home'); 
 
 Route::get('/statistik','Statistik_Controller@statistik'); 
 
@@ -64,15 +65,17 @@ route::get('/editjadwalkegiatan{id}','Jadwalkegiatan_Controller@editjadwalkegiat
 Route::get('/datamisaumat','Pendaftaran_Controller@datamisaumat'); 
 
 Route::get('/validasi','Pendaftaran_Controller@datamisa'); 
-Route::get('/homeumat','Pendaftaran_Controller@homeumat'); 
+Route::get('/pendaftaranmisa','Pendaftaran_Controller@homeumat'); 
 Route::post('/addpendaftaran','Pendaftaran_Controller@addpendaftaran');  
 route::get('/deletependaftaran/{id}','Pendaftaran_Controller@deletependaftaran');
 
 Route::get('/indexumat','Umat_Controller@indexumat');
-Route::get('/login','Umat_Controller@login');
+Route::get('/loginumat','Umat_Controller@loginumat');
+Route::get('/index','Umat_Controller@index');
 Route::get('/viewpersembahan','Umat_Controller@viewpersembahan');
 Route::get('/viewkegiatan','Umat_Controller@viewkegiatan');
 Route::get('/viewjadwalmisa','Umat_Controller@viewjadwalmisa');
+Route::get('/viewpendaftaranmisa','Umat_Controller@viewpendaftaranmisa');
 
 // Route::group(['namespace' => 'App\Http\Controllers'], function()
 // {   
@@ -103,3 +106,9 @@ Route::get('/viewjadwalmisa','Umat_Controller@viewjadwalmisa');
 //         Route::get('/logout', 'logout_Controller@perform')->name('logout.perform');
 //     });
 // });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/register','login_controller@Register')->name('register'); 
+Route::POST('/submit/login','login_controller@login')->name('sublogin');

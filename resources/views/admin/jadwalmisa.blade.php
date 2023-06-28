@@ -70,11 +70,11 @@ tr:nth-child(even) {
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="statistik" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart fa-fw"></i>  Statistik</a>
+    
     <a href="tambahumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus fa-fw"></i>  Tambah Umat</a>
     <a href="daftarumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
     <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding w3-orange"><i class="	fa fa-calendar fa-fw"></i> Tambah Jadwal Misa</a>
-    <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Daftar Misa Mingguan</a>
+    <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Jadwal Misa Mingguan</a>
     <a href="persembahan" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-credit-card fa-fw"></i>  Data Persembahan</a>
     <a href="datamisaumat" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-database fa-fw"></i>  Data Misa</a>
     <a href="jadwalkegiatan" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar fa-fw"></i>  Tambah Jadwal Kegiatan</a>
@@ -121,7 +121,7 @@ tr:nth-child(even) {
             </div>
          <div class="form-group">
             <label for="exampleInputEmail1">kuota</label> 
-            <input name="kuota"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            <input name="kuota"type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
          </div>
       </div>
         <div class="modal-footer">

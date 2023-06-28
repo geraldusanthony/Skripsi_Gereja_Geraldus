@@ -281,26 +281,57 @@ footer a {
 </head>
 <body>
 <div class="container" id="container">
+	<!-- register login -->
 	<div class="form-container sign-up-container">
-		<form action="#">
-			<h1>Buat Akun Admin</h1>
+		<form action="/register" method="POST">
+		@csrf
+			<h1>Buat Akun Umat </h1>
 			<p></p>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
+			<input id="name" type="text" placeholder="Name"  class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus />
+			@if ($errors->has('name'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('name') }}</strong>
+                </span>
+            @endif
+			<input id="email" type="email" placeholder="Email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus />
+			@if ($errors->has('email'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('email') }}</strong>
+                </span>
+            @endif
+			<input id="paassword" type="password" placeholder="Password"  class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" value="{{ old('password') }}" required autofocus  />
+			@if ($errors->has('password'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('password') }}</strong>
+                </span>
+            @endif
+			<button>Registrasi</button>
 		</form>
 	</div>
+	<!-- register login -->
+	<!-- page login -->
 	<div class="form-container sign-in-container">
-		<form action="home">
-			<h1>Login Admin</h1>
+		<form action="{{ route('sublogin') }} method="post">
+		@csrf
+			<h1>Login User</h1>
 			<br></br>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
+			@error('email')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+            @enderror
+			<input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="password" autofocus />
+			@error('password')
+                <span class="invalid-feedback" role="alert">
+                	<strong>{{ $message }}</strong>
+                </span>
+            @enderror
 			<a href="#">Forgot your password?</a>
 			<button>Login</button>
 		</form>
 	</div>
+	<!-- page login -->
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
@@ -309,7 +340,7 @@ footer a {
 				<button class="ghost" id="signIn">Sign In</button>
 			</div>
 			<div class="overlay-panel overlay-right">
-				<h1>Hello, Admin!</h1>
+				<h1>Hello, Umat Yesus</h1>
 				<p>Silahkan isi form untuk registrasi</p>
 				<button class="ghost" id="signUp">Registrasi</button>
 			</div>
@@ -317,7 +348,7 @@ footer a {
 	</div>
 </div>
 <div class="container2" id="container">
-	<h2>HALO ADMIN!</h2>
+	<h2>HALO Umat Allah</h2>
     <h2>Selamat datang kembali,</h2>
     <h2>Banyak hal menarik, Ayo segera masuk untuk melihatnya.</h2>
 	</div>

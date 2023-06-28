@@ -16,9 +16,9 @@ class login_controller extends Controller
 {
     public function showLoginForm()
     {
-        if (Auth::guard('admin')->check()) {
+        if (Auth::guard('Admin')->check()) {
             return redirect()->route('dashboard_admin');
-        } else if (Auth::guard('umat')->check()) {
+        } else if (Auth::guard('Umat')->check()) {
             return redirect()->route('userindex');
         } else {
             if(Cookie::get('email') !== null){
@@ -44,10 +44,10 @@ class login_controller extends Controller
         if(isset($user)){
             switch ($user->role_id) {
                 case '1':
-                    $guard="admin";
+                    $guard="Admin";
                     break;
                 case '2':
-                    $guard="umat";
+                    $guard="Umat";
                     break;
             }
             if(auth()->guard($guard)->attempt([
@@ -58,19 +58,19 @@ class login_controller extends Controller
                 if($request->rememberme=='on'){
                     $cookie1 = Cookie::make('email', $request->email, $minutes);
                     $cookie2 = Cookie::make('pass', $request->password, $minutes);
-                    if ($guard=='admin') {
+                    if ($guard=='Admin') {
                         return redirect()->intended(url('/dashboard'))->withCookie($cookie1)->withCookie($cookie2);
-                    }elseif ($guard=='umat') {
-                        return redirect()->intended(url('/userindex'))->withCookie($cookie1)->withCookie($cookie2);
+                    }elseif ($guard=='Umat') {
+                        return redirect()->intended(url('/homeumat'))->withCookie($cookie1)->withCookie($cookie2);
                     }
                     
                 }else{
                     $cookie1 = Cookie::forget('email');
                     $cookie2 = Cookie::forget('pass');
-                    if ($guard=='admin') {
+                    if ($guard=='Admin') {
                         return redirect()->intended(url('/dashboard'))->withCookie($cookie1)->withCookie($cookie2);
-                    }elseif ($guard=='pengajar') {
-                        return redirect()->intended(url('/userindex'))->withCookie($cookie1)->withCookie($cookie2);
+                    }elseif ($guard=='Umat') {
+                        return redirect()->intended(url('/homeumat'))->withCookie($cookie1)->withCookie($cookie2);
                     }
                     
                 }
@@ -89,8 +89,8 @@ class login_controller extends Controller
     {
         if(Auth::guard('admin')->check()){
             Auth::guard('admin')->logout();
-        } elseif(Auth::guard('pengajar')->check()){
-            Auth::guard('pengajar')->logout();
+        } elseif(Auth::guard('umat')->check()){
+            Auth::guard('umat')->logout();
         }
         $request->session()->invalidate();
 
@@ -99,5 +99,16 @@ class login_controller extends Controller
         return redirect()->route('loginfinal');
     }
 
+
+    protected function Register(Request $request)
+    {
+         User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'role_id' => '2',
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->back();
+    }
 
 }

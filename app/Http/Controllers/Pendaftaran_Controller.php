@@ -8,13 +8,14 @@ use App\Models\persembahan;
 use App\Models\jadwalmisa;
 
 
+
 class Pendaftaran_Controller extends Controller
 {
    
-
+    
     public function homeumat(request $request){
-        $persembahan = persembahan::all();
-        return view('umat.home',compact('persembahan'));
+        $jadwalmisa = jadwalmisa::all();
+        return view('umat.home',compact('jadwalmisa'));
     }
 
     public function addpendaftaran(Request $request){ 

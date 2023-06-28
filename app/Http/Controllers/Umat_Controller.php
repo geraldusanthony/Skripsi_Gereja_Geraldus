@@ -25,7 +25,7 @@ class Umat_Controller extends Controller
         return view('umat.index');
     }
 
-    public function login(){
+    public function loginumat(){
         return view('umat.login');
     }
 
@@ -42,6 +42,15 @@ class Umat_Controller extends Controller
     public function viewjadwalmisa(request $request){
         $jadwalmisa = jadwalmisa::all();
         return view('umat.viewjadwalmisa',compact('jadwalmisa'));
+    }
+
+    public function viewpendaftaranmisa(request $request){
+        $daftarmisa = pendaftaran::all();
+        return view('umat.pendaftaranmisa',compact('daftarmisa'));
+    }
+
+    public function index(){
+        return view('umat.home');
     }
 
 

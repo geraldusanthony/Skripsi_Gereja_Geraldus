@@ -121,7 +121,7 @@ body, html {
       <h1 class="w3-text-orange"><b>Mari Misa Dirumah Tuhan</b></h1>
       <h5 class="text-justify">Segera daftarkan diri Anda pada platform ini untuk dapat mengikuti jadwal Misa yang tersedia</h5>
       <h5 class="text-justify">Login terlebih dahulu untuk dapat mendaftar mengikuti misa</h5>
-      <p><a href="/login" class="w3-button w3-orange w3-round-large"><i class="fa fa-sign-in"> </i>Login Untuk Mendaftar Misa</a></p>
+      <p><a href="/loginumat" class="w3-button w3-orange w3-round-large"><i class="fa fa-sign-in"> </i>Login Untuk Mendaftar Misa</a></p>
     </div>
     <div class="w3-col m6">
       <img class="w3-image w3-round-large" src="asset/images/foto4.jpg" alt="Buildings" width="700" height="394">
@@ -166,11 +166,11 @@ body, html {
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-card w3-orange w3-round-large">
-        <img class="w3-round-large" src="/w3images/team4.jpg" alt="Dan" style="width:100%">
+        <img class="w3-round-large" src="asset/images/foto7.jpg" alt="Dan" style="width:100%">
         <div class="w3-container">
-          <h3>Jadwal Misa Harian</h3>
-          <p></p>
-          <p><a href="/" class="w3-button w3-light-grey w3-block w3-round-large"><i id="div4" class="fa"> </i> Lihat</a></p>
+          <h3>Pendaftaran Misa</h3>
+          <p>Berikut merupakan data umat yang telah mendaftarkan diri untuk mengkuti misa mingguan</p>
+          <p><a href="/viewpendaftaranmisa" class="w3-button w3-light-grey w3-block w3-round-large"><i id="div4" class="fa"> </i> Lihat</a></p>
         </div>
       </div>
     </div>
@@ -180,19 +180,19 @@ body, html {
 <!-- Promo Section "Statistics" -->
 <div class="w3-container w3-row w3-center w3-gray w3-padding-64">
   <div class="w3-quarter">
-    <span class="w3-xxlarge w3-text-black">8</span>
-    <br>Jumlah Wilayah</br>
+    <span class="w3-xxlarge w3-text-black"></span>
+    <br></br>
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">8</span>
+    <br>Jumlah Wilayah
   </div>
   <div class="w3-quarter">
     <span class="w3-xxlarge">34</span>
     <br>Jumlah Lingkungan
   </div>
   <div class="w3-quarter">
-    <span class="w3-xxlarge">89+</span>
-    <br>
-  </div>
-  <div class="w3-quarter">
-    <span class="w3-xxlarge">150+</span>
+    <span class="w3-xxlarge"></span>
     <br>
   </div>
 </div>

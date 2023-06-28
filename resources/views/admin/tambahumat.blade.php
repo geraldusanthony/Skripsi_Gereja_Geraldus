@@ -69,7 +69,7 @@ tr:nth-child(even) {
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="statistik" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart fa-fw"></i>  Statistik</a>
+    
     <a href="tambahumat" class="w3-bar-item w3-button w3-padding w3-orange"><i class="fa fa-user-plus fa-fw"></i>  Tambah Umat</a>
     <a href="daftarumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
     <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-calendar fa-fw"></i>  Tambah Jadwal Misa</a>
@@ -125,15 +125,15 @@ tr:nth-child(even) {
             </div>
           <div class="form-group">
             <label for="exampleInputEmail1">NIK</label> 
-            <input name="nik"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            <input name="nik"type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
          </div>
          <div class="form-group">
             <label for="exampleInputEmail1">No. Kartu Keluarga</label> 
-            <input name="no_kk"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            <input name="no_kk"type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
          </div>
            <div class="form-group">
               <label for="exampleInputEmail1">Tanggal Lahir</label>
-              <input name="tgl_lahir"type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+              <input name="tgl_lahir" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
            </div>
           <div class="form-group">
                  <label for="exampleInputEmail1">Jenis Kelamin : </label>
@@ -185,7 +185,7 @@ tr:nth-child(even) {
             </div>
             <div class="form-group">
                   <label for="exampleInputEmail1">Foto Umat</label>
-                  <input name="images"type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Blog">
+                  <input name="images" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Blog">
             </div>
         </div>
         <div class="modal-footer">

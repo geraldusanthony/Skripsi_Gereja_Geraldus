@@ -292,7 +292,7 @@ footer a {
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="home">
+		<form action="#">
 			<h1>Login Umat</h1>
 			<br></br>
 			<input type="email" placeholder="Email" />
