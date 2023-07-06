@@ -59,7 +59,7 @@ tr:nth-child(even) {
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Berkah dalem, Selamat Datang <strong>Admin</strong></span><br>
-      <a href="home" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i></a>
+      <a href="homeadmin" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i></a>
       <a href="loginpage" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
     </div>
@@ -112,16 +112,11 @@ tr:nth-child(even) {
             </div>
             <div class="form-group">
                  <label for="exampleInputEmail1">Jam </label>
-                 <select class="selectpicker form-control" name="jam">
-                 <option>Pilih Waktu</option>
-                 <option>17:00:00</option>
-                 <option>06:00:00</option>
-                 <option>08:00:00</option>
-                 </select>
+                 <input class="form-control" name="jam" type="time"></input>
             </div>
          <div class="form-group">
             <label for="exampleInputEmail1">kuota</label> 
-            <input name="kuota"type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            <input name="kuota" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
          </div>
       </div>
         <div class="modal-footer">

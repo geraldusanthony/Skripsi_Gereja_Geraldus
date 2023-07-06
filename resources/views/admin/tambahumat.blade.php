@@ -11,6 +11,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
@@ -37,6 +41,14 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+.select2-container .select2-selection--single{
+    height:34px !important;
+}
+.select2-container--default .select2-selection--single{
+         border: 1px solid #ccc !important; 
+     border-radius: 0px !important; 
+}
 </style>
 </head>
 <body class="w3-light-grey">
@@ -58,7 +70,7 @@ tr:nth-child(even) {
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Berkah dalem, Selamat Datang <strong>Admin</strong></span><br>
-      <a href="home" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i></a>
+      <a href="homeadmin" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i></a>
       <a href="loginpage" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
     </div>
@@ -91,21 +103,33 @@ tr:nth-child(even) {
         <form action="/addumat" method="POST" enctype="multipart/form-data">
           {{csrf_field()}}
           <div class="form-group">
-              <label for="exampleInputEmail1">Nama Umat</label>
-              <input name="nama_umat"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">  
+              <label for="exampleInputEmail1">Nama Umat :</label>
+              <input name="nama_umat" type="text" class="form-control @error('jadwal') is-invalid @enderror" required autocomplete="nama_umat" id="exampleInputEmail1" aria-describedby="emailHelp">  
+               @error('nama_umat')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+              @enderror
            </div>
+
            <div class="form-group">
                  <label for="exampleInputEmail1">Warga Negara : </label>
-                 <select class="selectpicker form-control" name="warga">
-                 <option>Pilih Warga Negara</option>
+                 <select class="select2 form-control @error('warga') is-invalid @enderror" required autocomplete="warga" name="warga">
+                 <option></option>
                  <option>WNI</option>
                  <option>WNA</option>
                  </select>
+                @error('warga')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+                @enderror
             </div>
+
             <div class="form-group">
                  <label for="exampleInputEmail1">Negara : </label>
-                 <select class="selectpicker form-control" name="negara">
-                 <option>Pilih Negara</option>
+                 <select class="form-control select2 @error('negara') is-invalid @enderror" required autocomplete="negara" name="negara">
+                 <option></option>
                  <option>Indonesia</option>
                  <option>Afganistan</option>
                  <option>Albania</option>
@@ -122,31 +146,61 @@ tr:nth-child(even) {
                   <option>Brunei</option>
                   <option>Brasil</option>
                  </select>
+                 @error('negara')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+                @enderror
             </div>
+
           <div class="form-group">
-            <label for="exampleInputEmail1">NIK</label> 
-            <input name="nik"type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            <label for="exampleInputEmail1">NIK :</label> 
+            <input name="nik"type="number" class="form-control @error('nik') is-invalid @enderror" required autocomplete="nik" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            @error('nik')
+              <span class="invalid-feedback" role="alert" >
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
          </div>
+
          <div class="form-group">
-            <label for="exampleInputEmail1">No. Kartu Keluarga</label> 
-            <input name="no_kk"type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            <label for="exampleInputEmail1">No. Kartu Keluarga :</label> 
+            <input name="no_kk" type="number" class="form-control @error('no_kk') is-invalid @enderror" required autocomplete="no_kk" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            @error('no_kk')
+              <span class="invalid-feedback" role="alert" >
+              	<strong>{{ $message }}</strong>
+              </span>
+            @enderror
          </div>
+
            <div class="form-group">
-              <label for="exampleInputEmail1">Tanggal Lahir</label>
-              <input name="tgl_lahir" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+              <label for="exampleInputEmail1">Tanggal Lahir :</label>
+              <input name="tgl_lahir" type="date" class="form-control @error('tgl_lahir') is-invalid @enderror" required autocomplete="tgl_lahir" id="exampleInputEmail1" aria-describedby="emailHelp" >
+              @error('tgl_lahir')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+              @enderror
            </div>
+
           <div class="form-group">
                  <label for="exampleInputEmail1">Jenis Kelamin : </label>
-                 <select class="selectpicker form-control" name="jns_kelamin">
-                 <option>Pilih Jenis Kelamin</option>
+                 <select class="select2 form-control @error('jns_kelamin') is-invalid @enderror" required autocomplete="jns_kelamin" name="jns_kelamin">
+                 <option></option>
                  <option>Laki-Laki</option>
                  <option>Perempuan</option>
                  </select>
+                @error('jns_kelamin')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+                @enderror
             </div>
+
             <div class="form-group">
-                 <label for="exampleInputEmail1">Pilih Lingkungan </label>
-                 <select class="selectpicker form-control" name="ling">
-                 <option>Silahkan Pilih Lingkungan</option>
+                 <label for="exampleInputEmail1">Pilih Lingkungan : </label>
+                 <select class="form-control select2 @error('ling') is-invalid @enderror" required autocomplete="ling" name="ling">
+                 <option></option>
                  <option>St. Yohanes Pemandi Gamping lor</option>
                  <option>St. Agatha Gamping Tengah</option>
                  <option>St. Agustinus Gamping</option>
@@ -182,11 +236,23 @@ tr:nth-child(even) {
                  <option>St. Antonius Padua Jatisawit</option>
                  <option>St. Kristoforus Baleasri</option>
                  </select>
+                 @error('ling')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+                @enderror
             </div>
+
             <div class="form-group">
                   <label for="exampleInputEmail1">Foto Umat</label>
-                  <input name="images" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Blog">
+                  <input name="images" type="file" class="@error('images') is-invalid @enderror" required autocomplete="images" id="image" aria-describedby="emailHelp" placeholder="Nama Blog" accept="image/gif, image/jpeg, image/png">
+                @error('images')
+                <span class="invalid-feedback" role="alert" >
+                	<strong>{{ $message }}</strong>
+                </span>
+                @enderror
             </div>
+
         </div>
         <div class="modal-footer">
         <button type="submit" class="btn btn-primary w3-orange">Tambah</button>
@@ -217,6 +283,10 @@ function w3_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";
 }
+</script>
+
+<script>
+    $('.select2').select2();
 </script>
 
 </body>

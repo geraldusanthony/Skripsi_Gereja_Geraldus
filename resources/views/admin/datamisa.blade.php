@@ -68,7 +68,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Berkah dalem, Selamat Datang <strong>Admin</strong></span><br>
-      <a href="home" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i></a>
+      <a href="homeadmin" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i></a>
       <a href="loginpage" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
     </div>
@@ -101,7 +101,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
     </header>
     <div class="w3-row">
     <div>
-        <table class="table, center">
+        <table class="table , center">
         <tr>
         <th>No Kursi</td>
         <th>Jadwal Misa</th>

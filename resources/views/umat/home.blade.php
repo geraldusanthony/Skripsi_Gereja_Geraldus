@@ -33,7 +33,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     height:34px !important;
 }
 .select2-container--default .select2-selection--single{
-         border: 1px solid #ccc !important; 
+         border: 1px solid orange !important; 
      border-radius: 0px !important; 
 }
 
@@ -47,7 +47,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <hr style="width:240px" class="w3-opacity">
     <p>Silahkan isi form dibawah ini : </p>
     <p>Sebelum mengikuti misa, seluruh umat diwajibkan untuk mengisi segala bentuk informasi yang dibutuhkan secara <b>JUJUR dan AKURAT</b>. 
-        Seluruh informasi dalam proses pendaftaran akan menjadi database yang dimiliki dan dikelola oleh pihak gereja.</p>
+        Seluruh informasi dalam proses pendaftaran akan tersimpan kedalam database yang dimiliki dan dikelola oleh pihak gereja.</p>
       
   <header class="w3-container">
     <div class="modal-body">
@@ -56,8 +56,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
            <div class="form-group">
            <label for="jadwalmisa">Pilih Jadwal</label>      
            <p>( Jika jadwal tidak tersedia kemungkinan kuota sudah penuh )</p>    
-                 <select class="form-control selectpicker" name="jadwal" class="form-control @error('jadwal') is-invalid @enderror" name="jadwal" value="{{ old('jadwal')}}" required autocomplete="jadwal" autofocus />>
-                 <option><label></label></option>
+                 <select name="jadwal" class="form-control select2 @error('jadwal') is-invalid @enderror" name="jadwal" value="{{ old('jadwal')}}" required autocomplete="jadwal" autofocus />>
+                 <option></option>
                  @foreach($jadwalmisa as $jadwalmisa)
                  <option> Hari : {{$jadwalmisa->hari}}, Tanggal : {{$jadwalmisa->tanggal}}, Jam : {{$jadwalmisa->jam}} </option>
                  @endforeach
@@ -66,7 +66,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                 <span class="invalid-feedback" role="alert" >
                 	<strong>{{ $message }}</strong>
                 </span>
-            @enderror
+                @enderror
             </div>
             
             <div class="form-group">

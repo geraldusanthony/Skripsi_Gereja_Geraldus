@@ -12,6 +12,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
@@ -79,7 +83,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Berkah dalem, Selamat Datang <strong>Admin</strong></span><br>
-      <a href="home" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i></a>
+      <a href="homeadmin" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i></a>
       <a href="loginpage" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
     </div>
@@ -114,8 +118,8 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
           {{csrf_field()}}
            <div class="form-group">
                  <label for="exampleInputEmail1">Hari </label>
-                 <select class="selectpicker form-control" name="hari">
-                 <option>Pilih Hari</option>
+                 <select class="select2 form-control" name="hari">
+                 <option></option>
                  <option>Senin</option>
                  <option>Selasa</option>
                  <option>Rabu</option>
@@ -225,6 +229,10 @@ function w3_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";
 }
+</script>
+
+<script>
+    $('.select2').select2();
 </script>
 
 </body>

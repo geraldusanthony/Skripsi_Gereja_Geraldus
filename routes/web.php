@@ -29,7 +29,7 @@ Route::get('/login','Admin_Controller@login');
 Route::get('/loginpage','Admin_Controller@loginpage'); 
 
 
-Route::get('/homeadmin','Admin_Controller@home'); 
+Route::get('/homeadmin','Admin_Controller@homeadmin'); 
 
 Route::get('/statistik','Statistik_Controller@statistik'); 
 
@@ -108,7 +108,7 @@ Route::get('/viewpendaftaranmisa','Umat_Controller@viewpendaftaranmisa');
 // });
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/register','login_controller@Register')->name('register'); 
 Route::POST('/submit/login','login_controller@login')->name('sublogin');

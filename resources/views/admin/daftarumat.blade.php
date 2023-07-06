@@ -82,7 +82,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Berkah dalem, Selamat Datang <strong>Admin</strong></span><br>
-      <a href="home" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i></a>
+      <a href="homeadmin" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i></a>
       <a href="loginpage" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
     </div>
@@ -111,7 +111,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
   <header class="w3-container" style="padding-top:22px">
     <h2><b>Data Umat</b></h2>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari nama umat" title="Masukkan Nama Umat">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari nama umat" title="Masukkan nama umat"></input>
     <div class="w3-row">
     </div>
         <table id="myTable" class="table, center">
