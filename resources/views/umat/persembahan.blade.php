@@ -65,8 +65,8 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 <body class="w3-light-grey">
     <header class="w3-container" style="padding-top:22px">
     <p><a href="/indexumat" class="w3-button w3-orange"><i class="fa fa-home"> </i>Kembali</a></p>
-    <h2><b>Data Persembahan Mingguan</b></h2>
-    <h4>Berikut merupakan data persembahan umat pada misa mingguan</h4>
+    <h2><b>Data Persembahan</b></h2>
+    <h4>Berikut merupakan data persembahan umat Gereja St. Maria Assumpta Gamping</h4>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari Bulan" title="Masukkan bulan">
     </header>
     <div class="w3-row">
@@ -76,16 +76,18 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <th>Bulan</th> 
         <th>Tahun</th>
         <th>Minggu Ke</th> 
-        <th>Persembahan 1</th>
-        <th>Persembahan 2</th>
+        <th>Kolekte 1</th>
+        <th>Kolekte 2</th>
+        <th>Total Persembahan</th>
         </tr>
         @foreach ($persembahan as $persembahan)
         <tr>
         <td>{{$persembahan->bulan}}</td> 
         <td>{{$persembahan->tahun}}</td> 
         <td>{{$persembahan->minggu}}</td> 
-        <td>{{$persembahan->jumlah}}</td> 
-        <td>{{$persembahan->jumlah2}}</td> 
+        <td>Rp.{{$persembahan->jumlah}}</td> 
+        <td>Rp.{{$persembahan->jumlah2}}</td> 
+        <td>Rp.{{$persembahan->jumlah + $persembahan->jumlah2}}</td>
         @endforeach
         </tr>
         </div>

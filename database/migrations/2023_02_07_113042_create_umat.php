@@ -16,13 +16,24 @@ return new class extends Migration
         Schema::create('umat', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama_umat');
+            $table->string('nama_bpts');
             $table->string('warga');
             $table->string('negara');
             $table->string('nik');
             $table->string('no_kk');
-            $table->date('tgl_lahir');
             $table->string('jns_kelamin');
             $table->string('ling');
+            $table->date('tgl_lahir');
+            $table->string('tmp_lhr');
+            $table->string('gol_darah');
+            $table->string('alamat');
+            $table->string('kota_kab');
+            $table->string('kec');
+            $table->string('kel');
+            $table->string('no_hp');
+            $table->string('email');
+            $table->string('pend');
+            $table->string('pekerjaan');
             $table->string('images');
             $table->timestamps();
         });

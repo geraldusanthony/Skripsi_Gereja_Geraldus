@@ -8,13 +8,10 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
@@ -36,7 +33,6 @@ td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
-  text-align: center;
 }
 
 tr:nth-child(even) {
@@ -49,42 +45,38 @@ tr:nth-child(even) {
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-<!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:200px;margin-top:43px;margin-right:200px">
   <header class="w3-container" style="padding-top:22px">
-    <h2><b>Edit Data Persembahan Kolekte Umat</b></h2>
+    <h2><b>Edit Data Persembahan Lingkungan</b></h2>
     <div class="modal-body">
-        <form action="{{route('editpersembahan',['id'=>$persembahan->id])}}" method="GET">
+        <form action="{{route('editpersembahanling',['id'=>$persembahanling->id])}}" method="GET">
           {{csrf_field()}}
           <div class="form-group">
+              <label for="exampleInputEmail1">Tanggal</label>
+              <input name="tanggal" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$persembahanling->tanggal}}" disabled>
+           </div>
+          <div class="form-group">
                  <label for="exampleInputEmail1">Tahun </label>
-                 <input class="select2 form-control" name="tahun" value="{{$persembahan->tahun}}" disabled>
+                 <input class="select2 form-control" name="tahun" type="text" value="{{$persembahanling->tahun}}" disabled>
                  </input>
             </div> 
-        <div class="form-group">
-                 <label for="exampleInputEmail1">Input Bulan </label>
-                 <input class="select2 form-control" name="bulan" value="{{$persembahan->bulan}}" disabled>
-                 </input>
-            </div>
             <div class="form-group">
-                 <label for="exampleInputEmail1">Input Minggu </label>
-                 <input class="select2 form-control" name="minggu" value="{{$persembahan->minggu}}" disabled>
-                 </input>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Kolekte 1</label>
-              <input name="jumlah"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$persembahan->jumlah}}">
+              <label for="exampleInputEmail1">Nama Lingkungan</label>
+              <input name="nama_ling" type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$persembahanling->nama_ling}}" disabled>
            </div>
-           <div class="form-group">
-              <label for="exampleInputEmail1">Kolekte 2</label>
-              <input name="jumlah2"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$persembahan->jumlah2}}">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Jumlah Persembahan</label>
+              <input name="jumlah" type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$persembahanling->jumlah}}">
            </div>
         </div>
         <div class="modal-footer">
         <button type="submit" class="btn btn-primary w3-orange">Simpan</button>
     </form>
     </div> 
+  </header>
   
+  
+</div>
 
 <script>
 // Get the Sidebar
@@ -109,10 +101,6 @@ function w3_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";
 }
-</script>
-
-<script>
-    $('.select2').select2();
 </script>
 
 </body>

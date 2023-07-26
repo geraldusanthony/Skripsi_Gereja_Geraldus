@@ -30,13 +30,24 @@ class Tambahumat_Controller extends Controller
     {
         $request->validate([
             'nama_umat'=>'required',
+            'nama_bpts'=>'required',
             'warga'=>'required',
             'negara'=>'required',
             'nik'=>'required',
             'no_kk'=>'required',
-            'tgl_lahir'=>'required',
             'jns_kelamin'=>'required',
             'ling'=>'required',
+            'tgl_lahir'=>'required',
+            'tmp_lhr'=>'required',
+            'gol_darah'=>'required',
+            'alamat'=>'required',
+            'kota_kab'=>'required',
+            'kec'=>'required',
+            'kel'=>'required',
+            'no_hp'=>'required',
+            'email'=>'required',
+            'pend'=>'required',
+            'pekerjaan'=>'required',
             'images'=>'required',
             // 'gambar'=>'required|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
@@ -57,13 +68,25 @@ class Tambahumat_Controller extends Controller
     {
         $request->validate([
             'nama_umat'=>'required',
+            'nama_bpts'=>'required',
             'warga'=>'required',
             'negara'=>'required',
             'nik'=>'required',
             'no_kk'=>'required',
-            'tgl_lahir'=>'required',
             'jns_kelamin'=>'required',
             'ling'=>'required',
+            'tgl_lahir'=>'required',
+            'tmp_lhr'=>'required',
+            'gol_darah'=>'required',
+            'alamat'=>'required',
+            'kota_kab'=>'required',
+            'kec'=>'required',
+            'kel'=>'required',
+            'no_hp'=>'required',
+            'email'=>'required',
+            'pend'=>'required',
+            'pekerjaan'=>'required',
+            'images'=>'required',
         ]);
 
         $post = umat::find($request->id);
@@ -78,13 +101,24 @@ class Tambahumat_Controller extends Controller
                 $post->images = $imgname;
             }
             $post->nama_umat=$request->nama_umat;
+            $post->nama_bpts=$request->nama_bpts;
             $post->warga = $request->warga;
             $post->negara = $request->negara;
             $post->nik = $request->nik;
             $post->no_kk = $request->no_kk;
-            $post->tgl_lahir = $request->tgl_lahir;
             $post->jns_kelamin =$request->jns_kelamin;
             $post->ling = $request->ling;
+            $post->tgl_lahir = $request->tgl_lahir;
+            $post->tmp_lhr = $request->tmp_lhr;
+            $post->gol_darah = $request->gol_darah;
+            $post->alamat = $request->alamat;
+            $post->kota_kab = $request->kota_kab;
+            $post->kec = $request->kec;
+            $post->kel = $request->kel;
+            $post->no_hp = $request->no_hp;
+            $post->email = $request->email;
+            $post->pend = $request->pend;
+            $post->pekerjaan = $request->pekerjaan;
             $post->save();
             return redirect('/daftarumat');
         } 

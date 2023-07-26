@@ -12,6 +12,14 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
@@ -51,10 +59,15 @@ tr:nth-child(even) {
     <div class="modal-body">
         <form action="{{route('editjadwal',['id'=>$jadwalmisa->id])}}" method="GET">
           {{csrf_field()}}
-           <div class="form-group">
+          <div class="form-group">
                  <label for="exampleInputEmail1">Hari </label>
-                 <select class="selectpicker form-control" name="hari" value="{{$jadwalmisa->hari}}">
+                 <select class="select2 form-control" name="hari" value="{{$jadwalmisa->hari}}">
                  <option>Pilih Hari</option>
+                 <option>Senin</option>
+                 <option>Selasa</option>
+                 <option>Rabu</option>
+                 <option>Kamis</option>
+                 <option>Jumat</option>
                  <option>Sabtu</option>
                  <option>Minggu</option>
                  </select>
@@ -63,6 +76,7 @@ tr:nth-child(even) {
               <label for="exampleInputEmail1">Tanggal</label>
               <input name="tanggal"type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$jadwalmisa->tanggal}}">
            </div>
+
            <div class="form-group">
                  <label for="exampleInputEmail1">Gereja </label>
                  <select class="selectpicker form-control" name="gereja">
@@ -70,15 +84,17 @@ tr:nth-child(even) {
                  <option>St. Maria Assumpta Gamping</option>
                  </select>
             </div>
+
             <div class="form-group">
                  <label for="exampleInputEmail1">Jam </label>
-                 <select class="selectpicker form-control" name="jam">
-                 <option>Pilih Waktu</option>
-                 <option>17:00:00</option>
-                 <option>06:00:00</option>
-                 <option>08:00:00</option>
-                 </select>
-            </div>
+                 <input class="form-control" name="jam" type="time" value="{{$jadwalmisa->jam}}" ></input>
+            </div> 
+
+            <div class="form-group">
+            <label for="exampleInputEmail1">Keterangan</label> 
+            <input name="keterangan" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$jadwalmisa->keterangan}}">
+         </div>
+
          <div class="form-group">
             <label for="exampleInputEmail1">kuota</label> 
             <input name="kuota"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$jadwalmisa->kuota}}">
@@ -116,6 +132,10 @@ function w3_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";
 }
+</script>
+
+<script>
+    $('.select2').select2();
 </script>
 
 </body>

@@ -55,6 +55,14 @@ Route::post('/addpersembahan','Persembahan_Controller@addpersembahan');
 route::get('/deletepersembahan/{id}','Persembahan_Controller@deletepersembahan');
 route::get('/viewdatapersembahan/{id}','Persembahan_Controller@findpersembahan');
 route::get('/editpersembahan/{id}','Persembahan_Controller@editpersembahan')->name('editpersembahan');
+Route::get('/cetakpersembahan_pdf','Persembahan_Controller@cetakpersembahan_pdf'); 
+
+Route::get('/persembahanling','Persembahan_Controller@persembahanling'); 
+Route::post('/addpersembahanling','Persembahan_Controller@addpersembahanling'); 
+route::get('/deletepersembahanling/{id}','Persembahan_Controller@deletepersembahanling');
+route::get('/viewdatapersembahanling/{id}','Persembahan_Controller@findpersembahanling');
+route::get('/editpersembahanling/{id}','Persembahan_Controller@editpersembahanling')->name('editpersembahanling');
+Route::get('/cetakpersembahanling_pdf','Persembahan_Controller@cetakpersembahanling_pdf'); 
 
 Route::get('/jadwalkegiatan','Jadwalkegiatan_Controller@jadwalkegiatan'); 
 Route::post('/addjadwalkegiatan','Jadwalkegiatan_Controller@addjadwalkegiatan');
@@ -112,3 +120,6 @@ Auth::routes();
 
 Route::post('/register','login_controller@Register')->name('register'); 
 Route::POST('/submit/login','login_controller@login')->name('sublogin');
+
+Route::get('itemPdfView',[ItemController::class,'itemPdfView']);
+Route::post('itemPdfView',array('as'=>'itemPdfView','uses'=>'ItemController@itemPdfView')); 

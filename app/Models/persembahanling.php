@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class jadwalmisa extends Model
+class persembahanling extends Model
 {
     use HasFactory;
-    protected $table = 'jadwalmisa';
+    protected $table = 'persembahanling';
     protected $primarykey = 'id';
-    protected $fillable = ['hari','tanggal','gereja','jam','keterangan','kuota']; 
+    protected $fillable = ['tanggal','tahun','nama_ling','jumlah']; 
 }

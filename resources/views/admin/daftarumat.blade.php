@@ -96,8 +96,12 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);
     <a href="tambahumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus fa-fw"></i>  Tambah Umat</a>
     <a href="daftarumat" class="w3-bar-item w3-button w3-padding w3-orange"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
     <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-calendar fa-fw"></i>  Tambah Jadwal Misa</a>
-    <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Jadwal Misa Mingguan</a>
-    <a href="persembahan" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-credit-card fa-fw"></i>  Data Persembahan</a>
+    <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Jadwal Misa</a>
+    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn"><i class="fa fa-credit-card fa-fw fa fa-caret-down"></i>  Data Persembahan</a>
+    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+      <a href="persembahan" class="w3-bar-item w3-button w3-light-white"><i class="fa fa-credit-card w3-margin-right"></i>Kolekte</a>
+      <a href="persembahanling" class="w3-bar-item w3-button w3-light-white"><i class="fa fa-credit-card w3-margin-right"></i>Persembahan Lingkungan</a>
+    </div>
     <a href="datamisaumat" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-database fa-fw"></i>  Data Misa</a>
     <a href="jadwalkegiatan" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar fa-fw"></i>  Tambah Jadwal Kegiatan</a>
   </div>
@@ -110,7 +114,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
   <header class="w3-container" style="padding-top:22px">
-    <h2><b>Data Umat</b></h2>
+    <h2><b>Data Umat Paroki Santa Maria Assumpta Gamping</b></h2>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari nama umat" title="Masukkan nama umat"></input>
     <div class="w3-row">
     </div>
@@ -118,31 +122,42 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);
         <tr>
         <th>Nama Umat</th>
         <th>Warga Negara</th> 
-        <th>Negara</th> 
         <th>NIK</th>
-        <th>No Kartu Keluarga</th>
         <th>Tanggal Lahir</th> 
         <th>Jenis Kelamin</th> 
         <th>Asal Lingkungan</th>
-        <th>Foto</th>
-        <th>Edit</th>
-        <th>Hapus</th>
-        <th>Lihat</th>
+        <th>Aksi</th>
         </tr>
         @foreach ($umat as $umat)
         <tr>
         <td>{{$umat->nama_umat}}</td>   
         <td>{{$umat->warga}}</td> 
-        <td>{{$umat->negara}}</td> 
         <td>{{$umat->nik}}</td> 
-        <td>{{$umat->no_kk}}</td> 
         <td>{{$umat->tgl_lahir}}</td> 
         <td>{{$umat->jns_kelamin}}</td>
         <td>{{$umat->ling}}</td>
-        <td><img src="{{asset('umat/'.$umat->images)}}" height="35px" width="35px"></td>
-        <td><a href="/prosesviewdata/{{$umat->id}}" class="btn fa fa-edit w3-orange"></a></td>
-        <td><a href="/deleteumat/{{$umat->id}}" class="btn fa fa-trash w3-orange"></a></td>
-        <td><a href="/profileumat/{{$umat->id}}" class="btn fa fa-eye w3-orange"></a></td>
+        <td><a href="/prosesviewdata/{{$umat->id}}" class="btn fa fa-edit w3-orange"></a>
+        <!-- Modal -->
+        <button type="button" class="btn fa fa-trash w3-red" data-toggle="modal" data-target="#myModal"></button>
+          <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+        <div class="modal-header w3-orange">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title w3-center"><b>PERINGATAN !</b></h4>
+        </div>
+        <div class="modal-body">
+          <p>Apakah anda yakin menghapus data ini ?</p>
+        </div>
+        <div class="modal-footer">
+        <a href="/deleteumat/{{$umat->id}}" class="btn fa fa-trash w3-orangemary w3-red"> Hapus</a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        <a href="/profileumat/{{$umat->id}}" class="btn fa fa-eye w3-blue"></a></td>
         @endforeach
         </tr>
         </div>
@@ -195,6 +210,21 @@ function w3_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";
 }
+</script>
+
+<script>
+// Accordion 
+function myAccFunc() {
+  var x = document.getElementById("demoAcc");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn").click();
 </script>
 
 </body>

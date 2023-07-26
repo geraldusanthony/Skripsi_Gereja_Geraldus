@@ -12,6 +12,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
@@ -74,8 +80,12 @@ tr:nth-child(even) {
     <a href="tambahumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus fa-fw"></i>  Tambah Umat</a>
     <a href="daftarumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
     <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding w3-orange"><i class="	fa fa-calendar fa-fw"></i> Tambah Jadwal Misa</a>
-    <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Jadwal Misa Mingguan</a>
-    <a href="persembahan" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-credit-card fa-fw"></i>  Data Persembahan</a>
+    <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Jadwal Misa</a>
+    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn"><i class="fa fa-credit-card fa-fw fa fa-caret-down"></i>  Data Persembahan</a>
+    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+      <a href="persembahan" class="w3-bar-item w3-button w3-light-white"><i class="fa fa-credit-card w3-margin-right"></i>Kolekte</a>
+      <a href="persembahanling" class="w3-bar-item w3-button w3-light-white"><i class="fa fa-credit-card w3-margin-right"></i>Persembahan Lingkungan</a>
+    </div>
     <a href="datamisaumat" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-database fa-fw"></i>  Data Misa</a>
     <a href="jadwalkegiatan" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar fa-fw"></i>  Tambah Jadwal Kegiatan</a>
   </div>
@@ -87,14 +97,19 @@ tr:nth-child(even) {
 
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
   <header class="w3-container" style="padding-top:22px">
-    <h2><b>Silahkan Tambah Data Jadwal Misa Mingguan</b></h2>
+    <h2><b>Silahkan Tambah Data Jadwal Misa</b></h2>
     <div class="modal-body">
         <form action="/addjadwalmisa" method="POST">
           {{csrf_field()}}
            <div class="form-group">
                  <label for="exampleInputEmail1">Hari </label>
-                 <select class="selectpicker form-control" name="hari">
+                 <select class="select2 form-control" name="hari">
                  <option>Pilih Hari</option>
+                 <option>Senin</option>
+                 <option>Selasa</option>
+                 <option>Rabu</option>
+                 <option>Kamis</option>
+                 <option>Jumat</option>
                  <option>Sabtu</option>
                  <option>Minggu</option>
                  </select>
@@ -105,15 +120,22 @@ tr:nth-child(even) {
            </div>
            <div class="form-group">
                  <label for="exampleInputEmail1">Gereja </label>
-                 <select class="selectpicker form-control" name="gereja">
+                 <select class="select2 form-control" name="gereja">
                  <option>Pilih Gereja</option>
                  <option>St. Maria Assumpta Gamping</option>
                  </select>
             </div>
+            
             <div class="form-group">
                  <label for="exampleInputEmail1">Jam </label>
                  <input class="form-control" name="jam" type="time"></input>
             </div>
+
+            <div class="form-group">
+                 <label for="exampleInputEmail1">Keterangan Misa </label>
+                 <input class="form-control" name="keterangan" type="text"></input>
+            </div>
+
          <div class="form-group">
             <label for="exampleInputEmail1">kuota</label> 
             <input name="kuota" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
@@ -151,6 +173,25 @@ function w3_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";
 }
+</script>
+
+<script>
+    $('.select2').select2();
+</script>
+
+<script>
+// Accordion 
+function myAccFunc() {
+  var x = document.getElementById("demoAcc");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn").click();
 </script>
 
 </body>

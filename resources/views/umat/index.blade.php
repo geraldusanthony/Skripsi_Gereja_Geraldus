@@ -139,7 +139,7 @@ body, html {
         <img class="w3-round-large" src="asset/images/persembahan.jpeg" alt="John" style="width:100%">
         <div class="w3-container">
           <h3>Data Persembahan Umat</h3>
-          <p>Berikut merupakan data persembahan mingguan Gereja St. Maria Assumpta Gamping.</p>
+          <p>Berikut merupakan data persembahan umat Gereja St. Maria Assumpta Gamping. Silahkan lihat secara detail.</p>
           <p><a href="/viewpersembahan" class="w3-button w3-light-grey w3-block w3-round-large"><i id="div1" class="fa" > </i> Lihat</a></p>
         </div>
       </div>
@@ -149,7 +149,7 @@ body, html {
         <img class="w3-round-large" src="asset/images/kegiatan.jpg" alt="Jane" style="width:100%">
         <div class="w3-container">
           <h3>Jadwal Kegiatan Gereja</h3>
-          <p>Jadwal kegiatan gereja yang di adakan didalam gereja ataupun di luar gereja Gamping.</p>
+          <p>Jadwal kegiatan gereja yang di adakan didalam gereja ataupun di luar gereja St. Maria Assumpta Gamping.</p>
           <p><a href="/viewkegiatan" class="w3-button w3-light-grey w3-block w3-round-large"><i id="div2" class="fa"> </i> Lihat</a></p>
         </div>
       </div>
@@ -158,8 +158,8 @@ body, html {
       <div class="w3-card w3-orange w3-round-large">
         <img class="w3-round-large" src="asset/images/foto6.jpg" alt="Mike" style="width:100%">
         <div class="w3-container">
-          <h3>Jadwal Misa Mingguan</h3>
-          <p>Berikut merupakan jadwal misa mingguan yang telah di inputkan oleh admin. silahkan pilih jadwal.</p>
+          <h3>Jadwal Misa</h3>
+          <p>Berikut merupakan jadwal misa yang akan di laksanakan di Gereja St. Maria Assumpta Gamping. Silahkan lihat jadwal.</p>
           <p><a href="/viewjadwalmisa" class="w3-button w3-light-grey w3-block w3-round-large"><i id="div3" class="fa"> </i> Lihat</a></p>
         </div>
       </div>
@@ -169,7 +169,7 @@ body, html {
         <img class="w3-round-large" src="asset/images/foto7.jpg" alt="Dan" style="width:100%">
         <div class="w3-container">
           <h3>Pendaftaran Misa</h3>
-          <p>Berikut merupakan data umat yang telah mendaftarkan diri untuk mengkuti misa mingguan</p>
+          <p>Berikut merupakan data umat yang telah mendaftarkan diri untuk mengkuti misa di Gereja St. Maria Assumpta Gamping</p>
           <p><a href="/viewpendaftaranmisa" class="w3-button w3-light-grey w3-block w3-round-large"><i id="div4" class="fa"> </i> Lihat</a></p>
         </div>
       </div>
@@ -274,8 +274,8 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 </div>
 
 <!-- Footer -->
-<footer class="w3-center w3-white" style="padding: 15px 5px">
-  <a href="#home" class="w3-button w3-light-grey w3-text-black"><i class="fa fa-arrow-up w3-margin-right"></i>Kembali ke atas</a>
+<footer class="w3-center w3-white" style="padding: 10px 5px">
+  <a href="#home" class="w3-button w3-light-white w3-text-black"><i class="fa fa-arrow-up w3-margin-right"></i>Kembali ke atas</a>
 </footer>
  
 <script>

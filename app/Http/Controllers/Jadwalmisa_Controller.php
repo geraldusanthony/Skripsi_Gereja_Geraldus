@@ -33,6 +33,7 @@ class Jadwalmisa_Controller extends Controller
         $jadwalmisa->tanggal = $request->input('tanggal');
         $jadwalmisa->gereja = $request->input('gereja');
         $jadwalmisa->jam = $request->input('jam');
+        $jadwalmisa->keterangan = $request->input('keterangan');
         $jadwalmisa->kuota = $request->input('kuota');
         $jadwalmisa->save();
         return redirect('pendaftaran');

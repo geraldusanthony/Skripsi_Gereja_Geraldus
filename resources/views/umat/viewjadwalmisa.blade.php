@@ -65,7 +65,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 <body class="w3-light-grey">
     <header class="w3-container" style="padding-top:22px">
     <p><a href="/indexumat" class="w3-button w3-orange"><i class="fa fa-home"> </i>Kembali</a></p>
-    <h2><b>Jadwal Misa Mingguan</b></h2>
+    <h2><b>Jadwal Misa Gereja St. Maria Assumpta Gamping</b></h2>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari hari jadwal misa" title="Masukkan hari jadwal misa">
     </header>
     <div class="w3-row">
@@ -76,6 +76,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <th>Tanggal</th> 
         <th>Gereja</th> 
         <th>Jam</th>
+        <th>Keterangan</th>
         <th>Kuota</th>
         </tr>
         @foreach ($jadwalmisa as $jadwalmisa)
@@ -84,6 +85,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <td>{{$jadwalmisa->tanggal}}</td> 
         <td>{{$jadwalmisa->gereja}}</td> 
         <td>{{$jadwalmisa->jam}}</td> 
+        <td>{{$jadwalmisa->keterangan}}</td>
         <td>{{$jadwalmisa->kuota}}</td> 
         @endforeach
         </tr>

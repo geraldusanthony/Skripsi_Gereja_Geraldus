@@ -12,6 +12,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
@@ -85,8 +89,12 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
     <a href="tambahumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus fa-fw"></i>  Tambah Umat</a>
     <a href="daftarumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
     <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-calendar fa-fw"></i>  Tambah Jadwal Misa</a>
-    <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Jadwal Misa Mingguan</a>
-    <a href="persembahan" class="w3-bar-item w3-button w3-padding w3-orange"><i class="	fa fa-credit-card fa-fw"></i>  Data Persembahan</a>
+    <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Jadwal Misa</a>
+    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn"><i class="fa fa-credit-card fa-fw fa fa-caret-down"></i>  Data Persembahan</a>
+    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+      <a href="persembahan" class="w3-bar-item w3-button w3-light-white"><i class="fa fa-credit-card w3-margin-right"></i>Kolekte</a>
+      <a href="persembahanling" class="w3-bar-item w3-button w3-light-white"><i class="fa fa-credit-card w3-margin-right"></i>Persembahan Lingkungan</a>
+    </div>
     <a href="datamisaumat" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-database fa-fw"></i>  Data Misa</a>
     <a href="jadwalkegiatan" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar fa-fw"></i>  Tambah Jadwal Kegiatan</a>
   </div>
@@ -99,24 +107,28 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
   <header class="w3-container" style="padding-top:22px">
-    <h2><b>Silahkan Tambah Data Persembahan</b></h2>
+    <h2><b>Silahkan Tambah Data Persembahan Kolekte Umat</b></h2>
     <div class="modal-body">
         <form action="/addpersembahan" method="POST">
           {{csrf_field()}}
           <div class="form-group">
                  <label for="exampleInputEmail1">Tahun </label>
-                 <select class="selectpicker form-control" name="tahun">
-                 <option>Pilih Tahun</option>
+                 <select class="select2 form-control" name="tahun" type="">
+                 <option></option>
                  <option>2020</option>
                  <option>2021</option>
                  <option>2022</option>
                  <option>2023</option>
+                 <option>2024</option>
+                 <option>2025</option>
+                 <option>2026</option>
+                 <option>2027</option>
                  </select>
             </div> 
         <div class="form-group">
-                 <label for="exampleInputEmail1">Input Bulan </label>
-                 <select class="selectpicker form-control" name="bulan">
-                 <option>Pilih Bulan</option>
+                 <label for="exampleInputEmail1">Pilih Bulan </label>
+                 <select class="select2 form-control" name="bulan">
+                 <option></option>
                  <option>Januari</option>
                  <option>Februari</option>
                  <option>Maret</option>
@@ -132,9 +144,9 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
                  </select>
             </div>
             <div class="form-group">
-                 <label for="exampleInputEmail1">Input Minggu </label>
-                 <select class="selectpicker form-control" name="minggu">
-                 <option>Minggu Ke</option>
+                 <label for="exampleInputEmail1">Pilih Minggu </label>
+                 <select class="select2 form-control" name="minggu">
+                 <option></option>
                  <option>Minggu Ke 1</option>
                  <option>Minggu Ke 2</option>
                  <option>Minggu ke 3</option>
@@ -142,12 +154,12 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
                  </select>
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Jumlah Persembahan 1</label>
-              <input name="jumlah"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="Rp.">
+              <label for="exampleInputEmail1">Kolekte 1</label>
+              <input name="jumlah" type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
            </div>
            <div class="form-group">
-              <label for="exampleInputEmail1">Jumlah Persembahan 2</label>
-              <input name="jumlah2"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="Rp.">
+              <label for="exampleInputEmail1">Kolekte 2</label>
+              <input name="jumlah2" type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
            </div>
         </div>
         <div class="modal-footer">
@@ -155,7 +167,9 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
     </form>
     </div> 
     <header class="w3-container" style="padding-top:22px">
-    <h2><b>Data Persembahan Mingguan</b></h2>
+    <h2><b>Data Persembahan Gereja</b></h2>
+    <button type="button" class="btn fa fa-download w3-blue" onclick="window.location.href='/cetakpersembahan_pdf';"> Download Data</button>
+    <P></P>
     </header>
     <div class="w3-row">
     </div>
@@ -164,20 +178,44 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         <th>Tahun</th>
         <th>Bulan</th> 
         <th>Minggu Ke</th> 
-        <th>Persembahan 1</th>
-        <th>Persembahan 2</th>
-        <th>Edit</th>
-        <th>Hapus</th>
+        <th>Kolekte 1</th>
+        <th>Kolekte 2</th>
+        <th>Total</th>
+        <th>Tanggal Input Data</th>
+        <th>Tanggal Update Data</th>
+        <th>Aksi</th>
         </tr>
         @foreach ($persembahan as $persembahan)
         <tr>
         <td>{{$persembahan->tahun}}</td>   
         <td>{{$persembahan->bulan}}</td> 
         <td>{{$persembahan->minggu}}</td> 
-        <td>{{$persembahan->jumlah}}</td> 
-        <td>{{$persembahan->jumlah2}}</td> 
-        <td><a href="/viewdatapersembahan/{{$persembahan->id}}" class="btn fa fa-edit w3-orange"></a></td>
-        <td><a href="/deletepersembahan/{{$persembahan->id}}" class="btn fa fa-trash w3-orange"></a></td>
+        <td>Rp.{{$persembahan->jumlah}}</td> 
+        <td>Rp.{{$persembahan->jumlah2}}</td>
+        <td>Rp.{{$persembahan->jumlah + $persembahan->jumlah2}}</td>
+        <td>{{$persembahan->created_at}}</td>
+        <td>{{$persembahan->updated_at}}</td>
+        <td><a href="/viewdatapersembahan/{{$persembahan->id}}" class="btn fa fa-edit w3-orange"></a>
+        <!-- Modal -->
+        <button type="button" class="btn fa fa-trash w3-red" data-toggle="modal" data-target="#myModal"></button></td>
+          <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+        <div class="modal-header w3-orange">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title w3-center"><b>PERINGATAN !</b></h4>
+        </div>
+        <div class="modal-body">
+          <p>Apakah anda yakin menghapus data ini ?</p>
+        </div>
+        <div class="modal-footer">
+        <a href="/deletepersembahan/{{$persembahan->id}}" class="btn fa fa-trash w3-orangemary w3-red"> Hapus</a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
         @endforeach
         </tr>
         </div>
@@ -208,6 +246,25 @@ function w3_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";
 }
+</script>
+
+<script>
+    $('.select2').select2();
+</script>
+
+<script>
+// Accordion 
+function myAccFunc() {
+  var x = document.getElementById("demoAcc");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn").click();
 </script>
 
 </body>

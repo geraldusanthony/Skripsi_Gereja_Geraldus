@@ -20,7 +20,7 @@
     html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif} 
 
     body {
-    background: orange;
+    background: white;
     }
 
     .form-control:focus {
@@ -54,7 +54,7 @@
     }
 
     .labels {
-    font-size: 11px
+    font-size: 12px
     }
 
     .add-experience:hover {
@@ -64,7 +64,6 @@
     border: solid 1px #BA68C8
     }
 </style>
-
 </head>
 <body>
     <div class="container rounded bg-white mt-5 mb-5">
@@ -74,19 +73,30 @@
             <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="{{asset('umat/'.$umat->images)}}"><span class="font-weight-bold">{{$umat->nama_umat}}</span><span class="text-black-50"></span><span> </span></div>
         </div>
         <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
+            <div class="p-3">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h2 class="text-right">Profil Umat</h2>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12"><label class="labels">Nama Umat</label><input type="text" class="form-control" value="{{$umat->nama_umat}}"></div>
+                    <div class="col-md-12"><label class="labels">Nama Baptis</label><input type="text" class="form-control" value="{{$umat->nama_bpts}}"></div>
                     <div class="col-md-12"><label class="labels">Warga Negara</label><input type="text" class="form-control" value="{{$umat->warga}}"></div>
                     <div class="col-md-12"><label class="labels">Negara</label><input type="text" class="form-control" value="{{$umat->negara}}"></div>
                     <div class="col-md-12"><label class="labels">NIK</label><input type="text" class="form-control" value="{{$umat->nik}}"></div>
                     <div class="col-md-12"><label class="labels">No Kartu Keluarga</label><input type="text" class="form-control" value="{{$umat->no_kk}}"></div>
-                    <div class="col-md-12"><label class="labels">Tanggal Lahir</label><input type="text" class="form-control" value="{{$umat->tgl_lahir}}"></div>
                     <div class="col-md-12"><label class="labels">Jenis Kelamin</label><input type="text" class="form-control" value="{{$umat->jns_kelamin}}"></div>
                     <div class="col-md-12"><label class="labels">Lingkungan</label><input type="text" class="form-control" value="{{$umat->ling}}"></div>
+                    <div class="col-md-12"><label class="labels">Tanggal Lahir</label><input type="text" class="form-control" value="{{$umat->tgl_lahir}}"></div>
+                    <div class="col-md-12"><label class="labels">Tempat Lahir</label><input type="text" class="form-control" value="{{$umat->tmp_lhr}}"></div>
+                    <div class="col-md-12"><label class="labels">Golongan Darah</label><input type="text" class="form-control" value="{{$umat->gol_darah}}"></div>
+                    <div class="col-md-12"><label class="labels">Alamat</label><input type="text" class="form-control" value="{{$umat->alamat}}"></div>
+                    <div class="col-md-12"><label class="labels">Kota/Kabupaten</label><input type="text" class="form-control" value="{{$umat->kota_kab}}"></div>
+                    <div class="col-md-12"><label class="labels">Kecamatan</label><input type="text" class="form-control" value="{{$umat->kec}}"></div>
+                    <div class="col-md-12"><label class="labels">Kelurahan</label><input type="text" class="form-control" value="{{$umat->kel}}"></div>
+                    <div class="col-md-12"><label class="labels">Nomer Handphone</label><input type="text" class="form-control" value="{{$umat->no_hp}}"></div>
+                    <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" value="{{$umat->email}}"></div>
+                    <div class="col-md-12"><label class="labels">Pendidikan Terakhir</label><input type="text" class="form-control" value="{{$umat->pend}}"></div>
+                    <div class="col-md-12"><label class="labels">Pekerjaan</label><input type="text" class="form-control" value="{{$umat->pekerjaan}}"></div>
                     <p></p>
                     <p><a href="/daftarumat" class="col-md-12 w3-button w3-orange"><i class="fa fa-home"> </i>Kembali</a></p>
                 </div>
@@ -96,5 +106,6 @@
     </div>
 </div>
 </div>
+
 </body>
 </html>

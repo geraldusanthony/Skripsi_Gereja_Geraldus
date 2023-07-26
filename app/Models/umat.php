@@ -10,5 +10,9 @@ class umat extends Model
     use HasFactory;
     protected $table = 'umat';
     protected $primarykey = 'id';
-    protected $fillable = ['nama_umat','warga','negara','nik','no_kk','tgl_lahir','jns_kelamin','ling','images']; 
+    protected $fillable = ['nama_umat','nama_bpts','warga','negara','nik','no_kk',
+    'jns_kelamin','ling','tgl_lahir',
+    'tmp_lhr','gol_darah','alamat','kota_kab',
+    'kec','kel','no_hp','email','pend','pekerjaan',
+    'images']; 
 }

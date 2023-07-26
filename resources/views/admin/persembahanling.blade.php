@@ -8,9 +8,14 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
@@ -28,8 +33,9 @@ table {
   width: 100%;
 }
 
-td {
+td{
   border: 1px solid #dddddd;
+  text-align: left;
   padding: 8px;
   text-align: center;
 }
@@ -37,6 +43,7 @@ td {
 th{
   background-color: orange;
   border: 1px solid #dddddd;
+  text-align: left;
   padding: 8px;
   text-align: center;
 }
@@ -46,17 +53,6 @@ tr:nth-child(even) {
 }
 
 tr:hover {background-color: rgba(255, 99, 71, 0.5);}
-
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 40%;
-  font-size: 14px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
 </style>
 </head>
 <body class="w3-light-grey">
@@ -89,10 +85,11 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    
     <a href="tambahumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus fa-fw"></i>  Tambah Umat</a>
     <a href="daftarumat" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Daftar Umat</a>
-    <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding "><i class="fa fa-calendar fa-fw"></i>  Tambah Jadwal Misa</a>
-    <a href="pendaftaran" class="w3-bar-item w3-button w3-padding w3-orange"><i class="fa fa-plus-square fa-fw"></i>  Jadwal Misa</a>
+    <a href="jadwalmisa" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-calendar fa-fw"></i>  Tambah Jadwal Misa</a>
+    <a href="pendaftaran" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus-square fa-fw"></i>  Jadwal Misa</a>
     <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn"><i class="fa fa-credit-card fa-fw fa fa-caret-down"></i>  Data Persembahan</a>
     <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
       <a href="persembahan" class="w3-bar-item w3-button w3-light-white"><i class="fa fa-credit-card w3-margin-right"></i>Kolekte</a>
@@ -109,33 +106,66 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
-
-<header class="w3-container" style="padding-top:22px">
-    <h2><b>Jadwal Misa Gereja St. Maria Assumpta Gamping</b></h2>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari Hari Jadwal Misa" title="Masukkan Hari">
-    
+  <header class="w3-container" style="padding-top:22px">
+    <h2><b>Silahkan Tambah Data Persembahan Lingkungan</b></h2>
+    <div class="modal-body">
+        <form action="/addpersembahanling" method="POST">
+          {{csrf_field()}}
+          <div class="form-group">
+              <label for="exampleInputEmail1">Tanggal</label>
+              <input name="tanggal" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+           </div>
+          <div class="form-group">
+                 <label for="exampleInputEmail1">Tahun </label>
+                 <select class="select2 form-control" name="tahun" type="">
+                 <option></option>
+                 <option>2020</option>
+                 <option>2021</option>
+                 <option>2022</option>
+                 <option>2023</option>
+                 <option>2024</option>
+                 <option>2025</option>
+                 <option>2026</option>
+                 <option>2027</option>
+                 </select>
+            </div> 
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nama Lingkungan</label>
+              <input name="nama_ling" type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+           </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Jumlah Persembahan</label>
+              <input name="jumlah" type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+           </div>
+        </div>
+        <div class="modal-footer">
+        <button type="submit" class="btn btn-primary w3-orange">Tambah</button>
+    </form>
+    </div> 
+    <header class="w3-container" style="padding-top:22px">
+    <h2><b>Data Persembahan Lingkungan</b></h2>
+    <button type="button" class="btn fa fa-download w3-blue" onclick="window.location.href='/cetakpersembahanling_pdf';"> Download Data</button>
+    <P></P>
+    </header>
     <div class="w3-row">
-    <div>
-        <table id="myTable" class="table, center">
+    </div>
+        <table class="table, center">
         <tr>
-        <th>Hari</th>
-        <th>Tanggal</th> 
-        <th>Gereja</th> 
-        <th>Jam</th>
-        <th>Keterangan</th>
-        <th>Kuota</th>
+        <th>Tanggal</th>
+        <th>Tahun</th> 
+        <th>Nama Lingkungan</th> 
+        <th>Jumlah</th>
+        <th>Waktu Update Data</th>
         <th>Aksi</th>
         </tr>
-        @foreach ($jadwalmisa as $jadwalmisa)
+        @foreach ($persembahanling as $persembahanling)
         <tr>
-        <td>{{$jadwalmisa->hari}}</td>   
-        <td>{{$jadwalmisa->tanggal}}</td> 
-        <td>{{$jadwalmisa->gereja}}</td> 
-        <td>{{$jadwalmisa->jam}}</td>
-        <td>{{$jadwalmisa->keterangan}}</td>  
-        <td>{{$jadwalmisa->kuota}}</td> 
-        <td><a href="/viewdata/{{$jadwalmisa->id}}" class="btn fa fa-edit w3-orange"></a>
-        <!-- Modal -->
+        <td>{{$persembahanling->tanggal}}</td>   
+        <td>{{$persembahanling->tahun}}</td> 
+        <td>{{$persembahanling->nama_ling}}</td> 
+        <td>Rp.{{$persembahanling->jumlah}}</td>
+        <td>{{$persembahanling->updated_at}}</td> 
+        <td><a href="/viewdatapersembahanling/{{$persembahanling->id}}" class="btn fa fa-edit w3-orange"></a>
         <button type="button" class="btn fa fa-trash w3-red" data-toggle="modal" data-target="#myModal"></button></td>
           <div class="modal fade" id="myModal" role="dialog">
           <div class="modal-dialog modal-sm">
@@ -148,7 +178,7 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
           <p>Apakah anda yakin menghapus data ini ?</p>
         </div>
         <div class="modal-footer">
-        <a href="/deletejadwal/{{$jadwalmisa->id}}" class="btn fa fa-trash w3-orangemary w3-red"> Hapus</a>
+        <a href="/deletepersembahanling/{{$persembahanling->id}}" class="btn fa fa-trash w3-orangemary w3-red"> Hapus</a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -158,34 +188,9 @@ tr:hover {background-color: rgba(255, 99, 71, 0.5);}
         @endforeach
         </tr>
         </div>
-        </table>
-        </header>
       </div>
-    </div>  
+  </header>
   
-</div>
-
-//search bar
-<script>
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
 
 <script>
 // Get the Sidebar
@@ -210,6 +215,10 @@ function w3_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";
 }
+</script>
+
+<script>
+    $('.select2').select2();
 </script>
 
 <script>

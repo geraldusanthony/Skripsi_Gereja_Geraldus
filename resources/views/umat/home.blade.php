@@ -59,7 +59,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                  <select name="jadwal" class="form-control select2 @error('jadwal') is-invalid @enderror" name="jadwal" value="{{ old('jadwal')}}" required autocomplete="jadwal" autofocus />>
                  <option></option>
                  @foreach($jadwalmisa as $jadwalmisa)
-                 <option> Hari : {{$jadwalmisa->hari}}, Tanggal : {{$jadwalmisa->tanggal}}, Jam : {{$jadwalmisa->jam}} </option>
+                 <option>{{$jadwalmisa->keterangan}} - Hari : {{$jadwalmisa->hari}} Tanggal : {{$jadwalmisa->tanggal}} Jam : {{$jadwalmisa->jam}} </option>
                  @endforeach
                  </select>                 
                  @error('jadwal')
